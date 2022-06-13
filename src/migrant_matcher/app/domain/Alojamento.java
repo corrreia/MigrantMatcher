@@ -11,6 +11,11 @@ public class Alojamento extends Ajuda{
         this.regiao = regiao;
     }
 
+    public Alojamento(int nPessoas) {
+        super();
+        this.nPessoas = nPessoas;
+    }
+
     public int getnPessoas() {
         return nPessoas;
     }
