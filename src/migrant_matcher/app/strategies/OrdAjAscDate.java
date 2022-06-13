@@ -11,11 +11,11 @@ public class OrdAjAscDate implements OrdAjStrat {
 
     @Override
     public void ordCat() {
-        ordList(CatalogoAjudas.getInstance().getAjudas());
+        ordListAj(CatalogoAjudas.getInstance().getAjudas());
     }
     
     @Override
-    public List<Ajuda> ordList(List<Ajuda> ajudaList) {
+    public List<Ajuda> ordListAj(List<Ajuda> ajudaList) {
         Collections.sort(ajudaList, new Comparator<Ajuda>() {
             @Override
             public int compare(Ajuda a1, Ajuda a2) {

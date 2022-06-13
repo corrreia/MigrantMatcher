@@ -7,6 +7,7 @@ import migrant_matcher.app.domain.Migrante;
 import migrant_matcher.app.domain.Regiao;
 import migrant_matcher.app.domain.catalogos.CatalogoAjudas;
 import migrant_matcher.app.domain.catalogos.CatalogoRegiao;
+import migrant_matcher.app.strategies.OrdAjStrat;
 import com.pidgeonsmssender.sdk.PidgeonSMSSender;
 
 public class MigranteHandler {
@@ -32,7 +33,7 @@ public class MigranteHandler {
             this.ajudasRegiao.addAll(CatalogoAjudas.getInstance().getItems());
         }
 
-        return ajudasRegiao;
+        return this.ajudasRegiao;
     }
 
     public void indicarAjuda(Ajuda ajuda){

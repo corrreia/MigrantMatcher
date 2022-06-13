@@ -8,5 +8,5 @@ public interface OrdAjStrat {
     
     public void ordCat();
 
-    public List<Ajuda> ordList(List<Ajuda> ajudaList);
+    public List<Ajuda> ordListAj(List<Ajuda> ajudaList);
 }

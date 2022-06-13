@@ -3,7 +3,8 @@ package migrant_matcher.app;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
-
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 
 public class Configuration {
     private static Configuration INSTANCE;
@@ -36,17 +37,34 @@ public class Configuration {
         return properties.getProperty(key, defaultValue);
     }
 
-    // public <T> T getInstanceOfClass(String key, T defaultValue){
-    //     String klassName = properties.getProperty(key);
-    //     if(klassName == null){
-    //         return defaultValue;
-    //     }
-    //     try{
-    //         Class<?> klass = Class.forName(klassName);
-    //         Constructor<T> c = klass.getConstructor();
-    //         return c.newInstance();
-    //     }catch (ClassNotFoundException e) {
-    //         e.printStackTrace();
-    //     }
-    // }
+    public <T> T getInstanceOfClass(String key, T defaultValue) {
+		String klassName = (String) properties.get(key);
+		if (klassName == null) {
+			return defaultValue;
+		}
+		
+		try {
+			@SuppressWarnings("unchecked")
+			Class<T> klass = (Class<T>) Class.forName(klassName);
+			Constructor<T> c = klass.getConstructor();
+			return c.newInstance();
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (NoSuchMethodException e) {
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		}
+		return defaultValue;
+	}
+
 }
