@@ -5,14 +5,14 @@ public class Alojamento extends Ajuda{
     private int nPessoas;
     private Regiao regiao;
 
-    public Alojamento(int nPessoas, Regiao regiao) {
-        super();
+    public Alojamento(String ownerNr ,int nPessoas, Regiao regiao) {
+        super(ownerNr);
         this.nPessoas = nPessoas;
         this.regiao = regiao;
     }
 
-    public Alojamento(int nPessoas) {
-        super();
+    public Alojamento(String ownerNr ,int nPessoas) {
+        super(ownerNr);
         this.nPessoas = nPessoas;
     }
 

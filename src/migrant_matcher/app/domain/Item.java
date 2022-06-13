@@ -4,8 +4,8 @@ public class Item extends Ajuda {
     
     private String descricao;
 
-    public Item(String descricao) {
-        super();
+    public Item(String ownerNr,String descricao) {
+        super(ownerNr);
         this.descricao = descricao;
     }
 

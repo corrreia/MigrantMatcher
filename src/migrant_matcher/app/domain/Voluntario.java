@@ -2,13 +2,13 @@ package migrant_matcher.app.domain;
 
 public class Voluntario {
     
-    private int contactNumber;
+    private String contactNumber;
 
-    public Voluntario(int contactNumber) {
+    public Voluntario(String contactNumber) {
         this.contactNumber = contactNumber;
     }
 
-    public int getContactNumber() {
+    public String getContactNumber() {
         return this.contactNumber;
     }
 }

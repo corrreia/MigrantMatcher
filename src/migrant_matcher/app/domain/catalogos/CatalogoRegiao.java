@@ -28,4 +28,12 @@ public class CatalogoRegiao {
         return catRegiao;
     }
 
+    public Regiao getRegiao(String nome) {
+        return catRegiao.stream().filter(reg -> reg.getNome().equals(nome)).findFirst().get();
+    }
+
+    public boolean isValidRegiao(String regiao) {
+        return catRegiao.stream().anyMatch(reg -> reg.getNome().equals(regiao));
+    }
+
 }
