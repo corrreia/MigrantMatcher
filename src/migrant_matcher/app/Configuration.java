@@ -1,0 +1,52 @@
+package migrant_matcher.app;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+
+public class Configuration {
+    private static Configuration INSTANCE;
+
+    private Properties properties = new Properties();
+
+    public static Configuration getConfiguration() {
+        if (INSTANCE == null) 
+            INSTANCE = new Configuration();
+        return INSTANCE;
+    }
+
+    private Configuration() {
+        try{
+            properties.load(new FileInputStream("/config.properties"));
+        }   catch (IOException e) {
+            System.out.println("Erro ao carregar arquivo config.properties");
+        }
+    }
+
+    public int getInt(String key, int defaultValue){
+        try{
+            return Integer.parseInt(properties.getProperty(key));
+        }   catch (NumberFormatException e) {
+            return defaultValue;
+        }
+    }
+
+    public String getString(String key, String defaultValue){
+        return properties.getProperty(key, defaultValue);
+    }
+
+    // public <T> T getInstanceOfClass(String key, T defaultValue){
+    //     String klassName = properties.getProperty(key);
+    //     if(klassName == null){
+    //         return defaultValue;
+    //     }
+    //     try{
+    //         Class<?> klass = Class.forName(klassName);
+    //         Constructor<T> c = klass.getConstructor();
+    //         return c.newInstance();
+    //     }catch (ClassNotFoundException e) {
+    //         e.printStackTrace();
+    //     }
+    // }
+}
