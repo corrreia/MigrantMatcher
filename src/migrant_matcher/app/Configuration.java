@@ -20,7 +20,7 @@ public class Configuration {
 
     private Configuration() {
         try{
-            properties.load(new FileInputStream("/config.properties"));
+            properties.load(new FileInputStream("C:\\Users\\tomas\\Desktop\\MigrantMatcher\\src\\migrant_matcher\\app\\config.properties"));
         }   catch (IOException e) {
             System.out.println("Erro ao carregar arquivo config.properties");
         }
