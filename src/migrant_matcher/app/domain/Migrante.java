@@ -4,16 +4,16 @@ import java.util.List;
 
 public class Migrante {
     
-    private int nTelefone;
+    private String nTelefone;
     private String nome;
     private List<Ajuda> ajudasUsadas;
 
-    public Migrante(int nTelefone, String nome) {
+    public Migrante(String nTelefone, String nome) {
         this.nTelefone = nTelefone;
         this.nome = nome;
     }
 
-    public int getnTelefone() {
+    public String getNTelefone() {
         return nTelefone;
     }
 

@@ -8,7 +8,7 @@ public class Voluntario {
         this.contactNumber = contactNumber;
     }
 
-    public String getContactNumber() {
+    public String getNumeroTelefone() {
         return this.contactNumber;
     }
 }

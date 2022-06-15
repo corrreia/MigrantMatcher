@@ -1,7 +1,6 @@
 package migrant_matcher.app.handlers;
 
 import java.util.List;
-import com.pidgeonsmssender.sdk.PidgeonSMSSender;
 
 import migrant_matcher.app.domain.Ajuda;
 import migrant_matcher.app.domain.Alojamento;
@@ -10,20 +9,21 @@ import migrant_matcher.app.domain.Regiao;
 import migrant_matcher.app.domain.Voluntario;
 import migrant_matcher.app.domain.catalogos.CatalogoAjudas;
 import migrant_matcher.app.domain.catalogos.CatalogoRegiao;
+import migrant_matcher.app.domain.factory.SmsFactory;
 
-public class VoluntarioHandler { //handler para criar ajudas
+public class OferecerAjudaHandler { //handler para criar ajudas
 
     private Voluntario v;
     private Ajuda a;
     private String authCode;
     private String authCodeWD;
 
-    public VoluntarioHandler(Voluntario v) {
+    public OferecerAjudaHandler(Voluntario v) {
         this.v = v;
     }
 
     public List<Regiao> nPessoasAlberga(int n){
-        a = new Alojamento(v.getContactNumber(), n);
+        a = new Alojamento(v.getNumeroTelefone(), n);
         return CatalogoRegiao.getInstance().getRegioes(); //.stream().map(reg -> reg.getNome()).collect(Collectors.toList())
     }
 
@@ -37,7 +37,7 @@ public class VoluntarioHandler { //handler para criar ajudas
     }
 
     public void oferecerItem(String descricao){
-        a = new Item(v.getContactNumber() ,descricao);
+        a = new Item(v.getNumeroTelefone(),descricao);
         enviarSMS();
     }
  
@@ -46,8 +46,7 @@ public class VoluntarioHandler { //handler para criar ajudas
         authCode = String.format("%06d", (int) (Math.random() * 1000000));
         authCodeWD = authCode.substring(0, 3) + "-" + authCode.substring(3);
         //send sms to sms provider
-        PidgeonSMSSender sms = new PidgeonSMSSender();
-        sms.send(v.getContactNumber(), "\n      MIGRANTMATCHER\n      O seu código de autenticação é: " + authCodeWD);
+        SmsFactory.getInstance().sendSms(v.getNumeroTelefone(), "\n-=MIGRANTMATCHER=-\nO seu código de autenticação é: " + authCodeWD);
     }
 
     public boolean indicarCodigo(String codigo){
@@ -57,5 +56,4 @@ public class VoluntarioHandler { //handler para criar ajudas
         }
         return false;
     }
-
 }

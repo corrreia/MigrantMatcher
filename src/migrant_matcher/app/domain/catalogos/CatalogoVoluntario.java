@@ -20,11 +20,23 @@ public class CatalogoVoluntario {
         return INSTANCE;
     }
 
-    public void adicionarVoluntarios(Voluntario voluntario){
-        catVoluntario.add(voluntario);
+    public boolean adicionarVoluntarios(Voluntario voluntario){
+        if(!catVoluntario.contains(voluntario)){
+            catVoluntario.add(voluntario);
+            return true;
+        }
+        return false;
     }
 
     public List<Voluntario> getVoluntarios() {
         return catVoluntario;
     }
+
+    public boolean voluntarioExistente(String nTelefone) {
+        return catVoluntario.stream().anyMatch(v -> v.getNumeroTelefone().equals(nTelefone));
+    }
+
+	public Voluntario getVoluntario(String nTelefone) {
+		return catVoluntario.stream().filter(v -> v.getNumeroTelefone().equals(nTelefone)).findFirst().get();
+	}
 }

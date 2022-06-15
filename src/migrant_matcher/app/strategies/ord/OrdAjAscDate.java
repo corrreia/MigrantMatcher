@@ -1,4 +1,4 @@
-package migrant_matcher.app.strategies;
+package migrant_matcher.app.strategies.ord;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -23,7 +23,5 @@ public class OrdAjAscDate implements OrdAjStrat {
             }
         });
         return ajudaList;    
-    }
-    
-    
+    }  
 }

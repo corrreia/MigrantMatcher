@@ -29,4 +29,19 @@ public class CatalogoMigrantes {
         return catMigrante;
     }
     
+    public void registarMigrante(Migrante migrante) {
+        catMigrante.add(migrante);
+    }
+
+    public boolean migranteExistente(Migrante migrante) {
+        return catMigrante.contains(migrante);
+    }
+
+    public boolean migranteExistente(String nrTelefone, String nome) {
+        return catMigrante.stream().anyMatch(m -> m.getNTelefone().equals(nrTelefone) && m.getNome().equals(nome));
+    }
+
+    public Migrante getMigrante(String nrTelefone) {
+        return catMigrante.stream().filter(m -> m.getNTelefone().equals(nrTelefone)).findFirst().get();
+    }
 }

@@ -1,4 +1,4 @@
-package migrant_matcher.app.strategies;
+package migrant_matcher.app.strategies.ord;
 
 import java.util.List;
 

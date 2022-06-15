@@ -1,7 +1,8 @@
 package migrant_matcher.app.domain.factory;
 
 import migrant_matcher.app.Configuration;
-import migrant_matcher.app.strategies.OrdAjStrat;
+import migrant_matcher.app.strategies.ord.OrdAjAscDate;
+import migrant_matcher.app.strategies.ord.OrdAjStrat;
 
 public class OrdAjFactory {
     //singleton constructor
@@ -18,7 +19,6 @@ public class OrdAjFactory {
     }
 
     public OrdAjStrat getOrdAjStrat() {
-        Configuration.getConfiguration().getInstanceOfClass("help_order_strategy", );
-        
+        return Configuration.getConfiguration().getInstanceOfClass("help_order_strategy", new OrdAjAscDate()); 
     }
 }
