@@ -50,11 +50,27 @@ public class CatalogoAjudas {
         return catAjudas.stream().map(AjudaDTO::new).collect(Collectors.toList());
     }
 
+    public Ajuda getAjudaById(int id) {
+        return catAjudas.stream().filter(ajuda -> ajuda.getId() == id).findFirst().get();
+    }
+
     public Ajuda getAjuda(AjudaDTO ajuda) {
         return catAjudas.stream().filter(aj -> aj.getId() == ajuda.getId()).findFirst().get();
     }
 
-    public boolean isValidAjuda(AjudaDTO ajuda) {
+    public boolean isValidAjuda(AjudaDTO ajuda) {  //FIXME: completamente broken
         return catAjudas.stream().anyMatch(aj -> aj.getId() == ajuda.getId() && aj.getClass().getSimpleName().equals(ajuda.getClass().getSimpleName()));
+    }
+
+    public int sizeCatalogo() {
+        return catAjudas.size();
+    }
+
+    public String toString(){
+        StringBuilder bob = new StringBuilder();
+        for(Ajuda ajuda : catAjudas){
+            bob.append(ajuda.toString() + "\n");
+        }
+        return bob.toString();
     }
 }

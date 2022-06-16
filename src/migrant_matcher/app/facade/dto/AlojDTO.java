@@ -10,6 +10,7 @@ public class AlojDTO extends AjudaDTO {
     public AlojDTO(Alojamento alojamento) {
         super(alojamento);
         this.nPessoas = alojamento.getnPessoas();
+        this.regiao = new RegiaoDTO(alojamento.getRegiao());
     }
 
     public int getnPessoas() {

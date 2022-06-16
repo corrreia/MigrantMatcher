@@ -41,4 +41,12 @@ public class CatalogoMigrantes {
     public Migrante getMigrante(MigDTO migrante) {
         return catMigrante.stream().filter(m -> m.getNTelefone().equals(migrante.getNrTelefone()) && m.getNome().equals(migrante.getNome())).findFirst().get();
     }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Migrante migrante : catMigrante) {
+            sb.append(migrante.toString() + "\n");
+        }
+        return sb.toString();
+    }
 }

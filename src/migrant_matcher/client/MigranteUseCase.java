@@ -9,10 +9,8 @@ import migrant_matcher.app.facade.dto.*;
 import migrant_matcher.app.facade.handlers.PedirAjudaHandler;
 import migrant_matcher.app.facade.session.*;
 
-public class MigranteUseCases {
-    public static void run(MigrantMatcher app) {
-
-        Scanner scanner = new Scanner(System.in);
+public class MigranteUseCase {
+    public static void run(MigrantMatcher app, Scanner scanner) {
 
         System.out.println("-=MigrantMatcher=-\n");
         System.out.println("Esta aplicacao visa ajudar migrantes que necessitem de apoio em Portugal.\n");
@@ -21,24 +19,24 @@ public class MigranteUseCases {
         boolean ciclo = true;
         while(ciclo) {
             System.out.println("Pretende registar-se? (s/n)");
+            if(scanner.nextLine().equals("n")){
+                ciclo = false;
+                break;
+            }
 
-            String resposta = scanner.nextLine();
-            
-            if (!resposta.equals("s")) ciclo = false;
-
-            System.out.println("Pretende registar-se individualmente ou como familia? (m/f)");
+            System.out.println("Pretende registar-se individualmente ou como familia? (i/f)");
 
             String tipo = scanner.nextLine();
 
             String nome = "";
             String numeroTelemovel = "";
 
-            if(tipo.equals("m")){
+            if(tipo.equals("i")){
                 System.out.println("Por favor, indique o seu nome:");
                 nome = scanner.nextLine();
                 System.out.println("Por favor, indique o seu numero de Telemovel:");
 
-                numeroTelemovel = phone(scanner);
+                numeroTelemovel = verificarNrTelemovel(scanner);
 
                 MSession currentMigranteSession = app.reconhecerMigrante(nome, numeroTelemovel);
 
@@ -56,7 +54,7 @@ public class MigranteUseCases {
 
                 System.out.println("Por favor, indique o numero de telemovel do cabeça de familia:");
 
-                numeroTelemovel = phone(scanner);
+                numeroTelemovel = verificarNrTelemovel(scanner);
 
                 List<MembroDTO> membros = new LinkedList<MembroDTO>();
 
@@ -78,19 +76,15 @@ public class MigranteUseCases {
 
                 help(scanner, handler);
                 
-            }else 
+            }else{
                 System.out.println("Tipo inválido!");
-
+                break;
+            }
         }
-
-        scanner.close();
         System.out.println("Programa terminado!");
-
-        
-        
     }
 
-    private static String phone(Scanner scanner){
+    private static String verificarNrTelemovel(Scanner scanner){
         boolean validPhoneNumber = false;
         String numeroTelemovel = "";
         while(!validPhoneNumber) {
@@ -132,24 +126,28 @@ public class MigranteUseCases {
                 for(AjudaDTO a : ajudas){
                     System.out.println(
                     "    - [" + a.getId() +
-                    "] (" + (a.getClass().getName().equals("ItemDTO") ? "ITEM" : "ALOJAMENTO") + ") " +
-                    (a.getClass().getName().equals("ItemDTO") ? 
-                    ("Item: " + ((ItemDTO) a).getDescricao()) : 
-                    ( "Alojamento :" + ((AlojDTO) a).getRegiao().getNome())));
+                    "] (" + (a instanceof ItemDTO ? "ITEM" : "ALOJAMENTO") + ") " +
+                     (a instanceof ItemDTO ? 
+                     ("Item: " + ((ItemDTO) a).getDescricao()) : 
+                     ("Alojamento : " + ((AlojDTO) a).getRegiao().getNome()))
+                    );
                 }
 
-                System.out.println("Por favor, indique o ID da ajuda que pretende pedir:");
+                
 
                 boolean mais = true;
                 while(mais) {
+                    System.out.println("Por favor, indique o ID da ajuda que pretende pedir:");
                     int id = scanner.nextInt();
+                    scanner.nextLine();
                     handler.indicarAjuda(ajudas.stream().filter(a -> a.getId() == id).findFirst().get());
                     System.out.println("Pretende pedir mais ajudas? (s/n)");
-                    String resp = scanner.nextLine();
-                    if(!resp.equals("s")) mais = true;
+                    if(!scanner.nextLine().equals("s")) mais = false;
                 }
-                handler.confirmarSelecao();
-                System.out.println("Selecao confirmada!, entretanto o voluntario vai entrar em contacto consigo.");
+                if(handler.confirmarSelecao())
+                    System.out.println("Selecao confirmada!, entretanto o voluntario vai entrar em contacto consigo.");
+                else
+                    System.out.println("Algo correu mal.");
     }
 
     private static boolean isValidPhoneNumber(String numeroTelemovel) {

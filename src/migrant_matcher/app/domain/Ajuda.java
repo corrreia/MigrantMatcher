@@ -29,12 +29,6 @@ public class Ajuda {
         return ownerNr;
     }
 
-    
-
-    @Override
-    public String toString() {
-        return "Ajuda [data=" + data + ", id=" + id + ", ownerNr=" + ownerNr + "]";
-    }
 
     @Override
     public int hashCode() {

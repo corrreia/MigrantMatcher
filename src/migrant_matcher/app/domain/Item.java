@@ -19,7 +19,8 @@ public class Item extends Ajuda {
 
     @Override
     public String toString() {
-        return "Item [descricao=" + descricao + "]";
+        return "Item [descricao=" + descricao + ", contactoProprietario: " + super.getOwnerNr() + ", data:" + 
+        super.getData() + "]";
     }
 
     @Override

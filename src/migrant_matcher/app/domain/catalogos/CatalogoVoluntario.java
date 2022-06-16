@@ -39,5 +39,14 @@ public class CatalogoVoluntario {
 
 	public Voluntario getVoluntario(VolDTO voluntario) {
 		return catVoluntario.stream().filter(v -> v.getNumeroTelefone().equals(voluntario.getNrTelefone())).findFirst().get();
+
 	}
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Voluntario v : catVoluntario) {
+            sb.append(v.toString() + "\n");
+        }
+        return sb.toString();
+    }
 }

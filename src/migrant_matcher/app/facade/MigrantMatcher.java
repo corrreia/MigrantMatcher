@@ -2,6 +2,7 @@ package migrant_matcher.app.facade;
 
 import java.util.List;
 
+import migrant_matcher.app.domain.Alojamento;
 import migrant_matcher.app.domain.Regiao;
 import migrant_matcher.app.domain.catalogos.CatalogoAjudas;
 import migrant_matcher.app.domain.catalogos.CatalogoMigrantes;
@@ -19,19 +20,13 @@ public class MigrantMatcher {
     private CatalogoAjudas catalogoAjudas;   
     private CatalogoMigrantes catalogoMigrantes;
     private CatalogoVoluntario catalogoVoluntario;  
-    private CatalogoRegiao catalogoRegiao;
+    public CatalogoRegiao catalogoRegiao;  //apenas publico devido ao facto de ter que ser preenchido em Client.java
 
     public MigrantMatcher() {
         this.catalogoAjudas = CatalogoAjudas.getInstance();
         this.catalogoMigrantes = CatalogoMigrantes.getInstance();
         this.catalogoVoluntario = CatalogoVoluntario.getInstance();
         this.catalogoRegiao = CatalogoRegiao.getInstance();
-
-        //temp
-        catalogoRegiao.adicionarRegiao(new Regiao("Norte"));
-        catalogoRegiao.adicionarRegiao(new Regiao("Sul"));
-        catalogoRegiao.adicionarRegiao(new Regiao("Leste"));
-        catalogoRegiao.adicionarRegiao(new Regiao("Oeste"));
     }
     
     public VSession reconhecerVoluntario(String nrTelefone) {
@@ -44,6 +39,21 @@ public class MigrantMatcher {
 
     public MSession reconhecerFamilia(String nrTelefone, String nome, List<MembroDTO> membros) {
         return MSession.reconhecerMigrante(new FamDTO(nome, nrTelefone, membros));
+    }
+
+    public String toStringCatalogos() {
+        return "Catalogo de Ajudas: \n" + catalogoAjudas.toString() + "\n" +
+                "Catalogo de Migrantes: \n" + catalogoMigrantes.toString() + "\n" +
+                "Catalogo de Voluntarios: \n" + catalogoVoluntario.toString() + "\n" +
+                "Catalogo de Regiao: \n" + catalogoRegiao.toString();
+    }
+
+
+    // Os Getters abaixo são apenas para testes, numa versão final não devem existir
+    // pois podem gerar problemas de segurança
+    
+    public CatalogoAjudas getCatalogoAjudas() {
+        return catalogoAjudas;
     }
 
 }

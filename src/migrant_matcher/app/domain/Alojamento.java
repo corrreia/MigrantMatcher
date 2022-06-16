@@ -34,7 +34,8 @@ public class Alojamento extends Ajuda{
 
     @Override
     public String toString() {
-        return "Alojamento [nPessoas=" + nPessoas + ", regiao=" + regiao + "]";
+        return "Alojamento [nPessoas=" + nPessoas + ", regiao=" + regiao + ", contactoProprietario: " + super.getOwnerNr() + ", data:" + 
+        super.getData() + "]";
     }
 
     @Override

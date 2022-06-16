@@ -42,4 +42,12 @@ public class CatalogoRegiao {
         return catRegiao.stream().anyMatch(r -> r.getNome().equals(reg.getNome()));
     }
 
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Regiao r : catRegiao) {
+            sb.append(r.toString() + "\n");
+        }
+        return sb.toString();
+    }
+
 }

@@ -5,7 +5,6 @@ import java.util.List;
 import migrant_matcher.app.domain.Ajuda;
 import migrant_matcher.app.domain.Alojamento;
 import migrant_matcher.app.domain.Item;
-import migrant_matcher.app.domain.Regiao;
 import migrant_matcher.app.domain.Voluntario;
 import migrant_matcher.app.domain.catalogos.CatalogoAjudas;
 import migrant_matcher.app.domain.catalogos.CatalogoRegiao;
@@ -16,7 +15,6 @@ public class OferecerAjudaHandler{ //handler para criar ajudas
 
     private Voluntario v;
     private Ajuda a;
-    private Regiao r;
     private String authCode;
     private String authCodeWD;
 
@@ -31,11 +29,15 @@ public class OferecerAjudaHandler{ //handler para criar ajudas
 
     public boolean indicarRegiao(RegiaoDTO regiao){
         if(CatalogoRegiao.getInstance().isValidRegiao(regiao)){
-            //a.setRegiao(CatalogoRegiao.getInstance().getRegiao(regiao));
+            ((Alojamento) a).setRegiao(CatalogoRegiao.getInstance().getRegiao(regiao));
             enviarSMS();
             return true;
         }
         return false;
+    }
+
+    public boolean isValidRegiao(RegiaoDTO regiao){
+        return CatalogoRegiao.getInstance().isValidRegiao(regiao);
     }
 
     public void oferecerItem(String descricao){
@@ -57,5 +59,13 @@ public class OferecerAjudaHandler{ //handler para criar ajudas
             return true;
         }
         return false;
+    }
+
+    /**
+    *  Este método apenas serve para ser possivel criar sessões nos testes
+    *  Numa versão final seria apagado pois pode gerar uma falha de segurança
+    */
+    public String getAuthCode(){
+        return authCodeWD;
     }
 }

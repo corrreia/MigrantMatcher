@@ -13,6 +13,10 @@ public class VSession {
         this.voluntario = voluntario;  
     }
 
+    public VolDTO getVoluntario() {
+        return new VolDTO(voluntario);
+    }
+
     public OferecerAjudaHandler getOferecerAjudaHandler() {
         return new OferecerAjudaHandler(voluntario);
     }

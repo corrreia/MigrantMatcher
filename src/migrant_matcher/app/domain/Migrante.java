@@ -1,5 +1,6 @@
 package migrant_matcher.app.domain;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Migrante {
@@ -11,6 +12,7 @@ public class Migrante {
     public Migrante(String nTelefone, String nome) {
         this.nTelefone = nTelefone;
         this.nome = nome;
+        this.ajudasUsadas = new LinkedList<Ajuda>();
     }
 
     public String getNTelefone() {

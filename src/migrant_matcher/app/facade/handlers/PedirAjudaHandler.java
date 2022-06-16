@@ -13,13 +13,15 @@ import migrant_matcher.app.domain.catalogos.CatalogoAjudas;
 import migrant_matcher.app.domain.catalogos.CatalogoRegiao;
 import migrant_matcher.app.domain.factory.SmsFactory;
 import migrant_matcher.app.facade.dto.AjudaDTO;
+import migrant_matcher.app.facade.dto.AlojDTO;
+import migrant_matcher.app.facade.dto.ItemDTO;
 import migrant_matcher.app.facade.dto.RegiaoDTO;
 
 public class PedirAjudaHandler{
      
     private Migrante m;
     
-    private List<Ajuda> ajudasSelecionadas;
+    private List<Ajuda> ajudasSelecionadas = new LinkedList<Ajuda>();
 
     public PedirAjudaHandler(Migrante m) {
         this.m = m;
@@ -37,30 +39,39 @@ public class PedirAjudaHandler{
 
             ajudasRegiao.addAll(CatalogoAjudas.getInstance().getAlojamentosByRegion(r));
             ajudasRegiao.addAll(CatalogoAjudas.getInstance().getItems());
-            return ajudasRegiao.stream().map(a -> new AjudaDTO(a)).collect(Collectors.toList());
+            return ajudasRegiao.stream().map(a -> a instanceof Item ? new ItemDTO((Item) a) : new AlojDTO((Alojamento)a)).collect(Collectors.toList());
         }
         return null; 
     }
 
     public boolean indicarAjuda(AjudaDTO ajuda){
-        if(CatalogoAjudas.getInstance().isValidAjuda(ajuda)){
+        //if(CatalogoAjudas.getInstance().isValidAjuda(ajuda)){
+            
             ajudasSelecionadas.add(CatalogoAjudas.getInstance().getAjuda(ajuda));
+            
             return true;
-        }
-        return false;
+        //}
+        
+        //return false;
     }
 
-    public void confirmarSelecao(){
-        this.m.addAjudasUsadas(ajudasSelecionadas);
-           
-        for(Ajuda a: ajudasSelecionadas){
-            SmsFactory.getInstance().sendSms(a.getOwnerNr(), "\n-=MIGRANTMATCHER=-\nAtenção! A ajuda que disponibilizou no MigrantMatcher ( " +
-            (a.getClass().getName().equals("Item") ? 
-            ("Item: " + ((Item) a).getDescricao()) : 
-            ( "Alojamento :" + ((Alojamento) a).getRegiao().getNome())) + 
-            " ) foi selecionada por um migrante. \n" 
-            + "Pode entrar em contacto com o mesmo/a pelo número de telemóvel: " + m.getNTelefone());
-        }  
+    public boolean confirmarSelecao(){
+        try{
+            m.addAjudasUsadas(ajudasSelecionadas);
+               
+            for(Ajuda a: ajudasSelecionadas){
+                SmsFactory.getInstance().sendSms(a.getOwnerNr(), "\n-=MIGRANTMATCHER=-\nAtenção! A ajuda que disponibilizou no MigrantMatcher (" +
+                (a instanceof Item ? 
+                ("Item: " + ((Item) a).getDescricao()) : 
+                ( "Alojamento : " + ((Alojamento) a).getRegiao().getNome())) + 
+                ") foi selecionada por um migrante. \n" 
+                + "Pode entrar em contacto com o mesmo/a pelo número de telemóvel: " + m.getNTelefone());
+            }  
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
     }
 
     
