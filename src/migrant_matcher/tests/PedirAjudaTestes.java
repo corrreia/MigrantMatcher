@@ -7,8 +7,6 @@ import org.junit.jupiter.api.Test;
 import java.util.LinkedList;
 import java.util.List;
 
-import javax.rmi.ssl.SslRMIClientSocketFactory;
-
 import migrant_matcher.app.facade.handlers.PedirAjudaHandler;
 import migrant_matcher.app.domain.Alojamento;
 import migrant_matcher.app.domain.Item;
