@@ -1,18 +1,11 @@
-## Getting Started
+# MigrantMatcher
+Esta aplicacao visa recrutar voluntarios que possam oferecer ajudas a migrantes que delas necessitem.
+## Dependencias
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+O `MigrantMatcher` utiliza as seguintes dependencias:
+- `smsprovider.jar` (Encontrado no moodle)
+- [JUnit 5](https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.8.2/junit-platform-console-standalone-1.8.2.jar) (Usado para testes)
 
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+### Trabalho realizado por:
+- Tomás Correia **(fc56372)**
+- Miguel Pato **(fc57102)**
