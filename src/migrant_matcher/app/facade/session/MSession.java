@@ -24,13 +24,16 @@ public class MSession {
         if(migrante.getClass().getSimpleName().equals("MigDTO")) {
             if(CatalogoMigrantes.getInstance().migranteExistente(migrante))
                 return new MSession(CatalogoMigrantes.getInstance().getMigrante(migrante));
-            return new MSession(new Migrante(migrante.getNrTelefone(), migrante.getNome()));
+            Migrante m = new Migrante(migrante.getNrTelefone(), migrante.getNome());
+            CatalogoMigrantes.getInstance().adicionarMigrante(m);
+            return new MSession(m);
         }else{
             if(CatalogoMigrantes.getInstance().migranteExistente(migrante))
                 return new MSession(CatalogoMigrantes.getInstance().getMigrante(migrante));
             Familia familia = new Familia(migrante.getNrTelefone(), migrante.getNome());
             for(MembroDTO m : ((FamDTO) migrante).getMembros())
                 familia.addMembro(new Membro(m.getNome()));
+            CatalogoMigrantes.getInstance().adicionarMigrante(familia);
             return new MSession(familia);
         }
     }
