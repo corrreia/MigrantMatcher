@@ -26,7 +26,7 @@ public class VoluntarioUseCase {
         String numeroTelemovel = verificarNrTelemovel(sc1);
             
         VSession currentVoluntarioSession = app.reconhecerVoluntario(numeroTelemovel);
-        OferecerAjudaHandler ofh = currentVoluntarioSession.getOferecerAjudaHandler();
+        OferecerAjudaHandler oah = currentVoluntarioSession.getOferecerAjudaHandler();
 
         System.out.println("Sessão Iniciada!");
         System.out.println("Por favor, indique o tipo de ajuda que pretende oferecer: (item/alojamento)");
@@ -36,8 +36,8 @@ public class VoluntarioUseCase {
         if(tipoAjuda.equals("item")){
             System.out.println("Por favor, faca uma breve descricao do item que pretende oferecer: ");
             String descricao = sc1.nextLine();
-            ofh.oferecerItem(descricao);
-            codigoItem(ofh, sc1);
+            oah.oferecerItem(descricao);
+            codigoItem(oah, sc1);
         }
 
         if(tipoAjuda.equals("alojamento")){
@@ -47,11 +47,11 @@ public class VoluntarioUseCase {
 
             System.out.println("Escolha uma das Regioes abaixo: ");
 
-            List<RegiaoDTO> regioesDisponiveis = ofh.nPessoasAlberga(nrPessoas);
+            List<RegiaoDTO> regioesDisponiveis = oah.nPessoasAlberga(nrPessoas);
             
             System.out.print(printRegioesDisponiveis(regioesDisponiveis));
             
-            reagiaoAux(ofh, sc1);
+            reagiaoAux(oah, sc1);
         }
     }
 
@@ -86,16 +86,16 @@ public class VoluntarioUseCase {
         return bob.toString();
     }
 
-    private static void reagiaoAux( OferecerAjudaHandler ofh, Scanner sc1){
+    private static void reagiaoAux( OferecerAjudaHandler oah, Scanner sc1){
         boolean regiaoExiste = false;
         System.out.print("Região: ");
         String regiao = sc1.nextLine();
         RegiaoDTO regiaoEscolhida = new RegiaoDTO(regiao);
         while(!regiaoExiste){
-            if(ofh.isValidRegiao(regiaoEscolhida)){
+            if(oah.isValidRegiao(regiaoEscolhida)){
                 System.out.println("Regiao do alojamento escolhida com sucesso!");
                 System.out.println("Apenas resta confirmar a sua ajuda inserindo o código que recebeu por sms.");
-                codigoAloj(regiaoEscolhida, ofh, sc1);
+                codigoAloj(regiaoEscolhida, oah, sc1);
                 regiaoExiste = true;
             } else {
                 System.out.println("Regiao escolhida não existe, tente outra vez!");
@@ -106,11 +106,11 @@ public class VoluntarioUseCase {
         }
     }
 
-    private static void codigoAloj(RegiaoDTO regiaoEscolhida, OferecerAjudaHandler ofh, Scanner sc1){
-        if(ofh.indicarRegiao(regiaoEscolhida)){
+    private static void codigoAloj(RegiaoDTO regiaoEscolhida, OferecerAjudaHandler oah, Scanner sc1){
+        if(oah.indicarRegiao(regiaoEscolhida)){
             System.out.print("Codigo: ");
             String codigo = sc1.nextLine();
-            while(!ofh.indicarCodigo(codigo)){
+            while(!oah.indicarCodigo(codigo)){
                 System.out.println("Codigo incorreto, tente outra vez! (Ajuda! É do tipo XXX-XXX, hifen eh opcional)");
                 System.out.print("Codigo: ");
                 codigo = sc1.nextLine();
@@ -119,10 +119,10 @@ public class VoluntarioUseCase {
         }
     }
 
-    private static void codigoItem(OferecerAjudaHandler ofh, Scanner sc1){
+    private static void codigoItem(OferecerAjudaHandler oah, Scanner sc1){
         System.out.println("Para terminar, introduza o código que recebeu no seu telemovel: ");
         String codigo = sc1.nextLine();
-        if(ofh.indicarCodigo(codigo)){
+        if(oah.indicarCodigo(codigo)){
             System.out.println("A sua ajuda foi registada no sistema. Os migrantes agradecem!");
         } else {
             System.out.println("Codigo incorreto, tente outra vez! (Ajuda! É do tipo XXX-XXX, hifen eh opcional)");

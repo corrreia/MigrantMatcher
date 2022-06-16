@@ -48,12 +48,25 @@ public class MigrantMatcher {
                 "Catalogo de Regiao: \n" + catalogoRegiao.toString();
     }
 
+    public void wipeCatalogos(){
+        catalogoAjudas.wipeCatalogo();
+        catalogoMigrantes.wipeCatalogo();
+        catalogoVoluntario.wipeCatalogo();
+        catalogoRegiao.wipeCatalogo();
+    }
 
+
+    //==========================================================================================
     // Os Getters abaixo são apenas para testes, numa versão final não devem existir
     // pois podem gerar problemas de segurança
+    //==========================================================================================
     
     public CatalogoAjudas getCatalogoAjudas() {
         return catalogoAjudas;
+    }
+
+    public CatalogoRegiao getCatalogoRegiao() {
+        return catalogoRegiao;
     }
 
 }

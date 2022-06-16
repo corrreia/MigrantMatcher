@@ -42,6 +42,12 @@ public class CatalogoRegiao {
         return catRegiao.stream().anyMatch(r -> r.getNome().equals(reg.getNome()));
     }
 
+    public void wipeCatalogo(){
+        if(catRegiao.size() > 0){
+            catRegiao.clear();
+        }
+    }
+
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for (Regiao r : catRegiao) {
