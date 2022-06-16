@@ -11,6 +11,7 @@ import migrant_matcher.app.domain.Regiao;
 import migrant_matcher.app.domain.Alojamento;
 import migrant_matcher.app.domain.catalogos.CatalogoAjudas;
 import migrant_matcher.app.domain.catalogos.CatalogoRegiao;
+import migrant_matcher.app.domain.factory.OrdAjFactory;
 import migrant_matcher.app.domain.factory.SmsFactory;
 import migrant_matcher.app.facade.dto.AjudaDTO;
 import migrant_matcher.app.facade.dto.AlojDTO;
@@ -39,6 +40,9 @@ public class PedirAjudaHandler{
 
             ajudasRegiao.addAll(CatalogoAjudas.getInstance().getAlojamentosByRegion(r));
             ajudasRegiao.addAll(CatalogoAjudas.getInstance().getItems());
+
+            ajudasRegiao = OrdAjFactory.getInstance().getOrdAjStrat().ordListAj(ajudasRegiao);
+            
             return ajudasRegiao.stream().map(a -> a instanceof Item ? new ItemDTO((Item) a) : new AlojDTO((Alojamento)a)).collect(Collectors.toList());
         }
         return null; 

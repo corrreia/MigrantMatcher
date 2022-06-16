@@ -11,11 +11,9 @@ public class OrdAjFstAloj implements OrdAjStrat{
 
     @Override
     public List<Ajuda> ordListAj(List<Ajuda> ajudaList) {
-        //order list in order to Alojamento apper in first position
         Collections.sort(ajudaList, new Comparator<Ajuda>() {
             @Override
             public int compare(Ajuda a1, Ajuda a2) {
-                //if a2 is of instance alojamento, it sould be first position
                 if(a2 instanceof Alojamento){
                     return -1;
                 }
