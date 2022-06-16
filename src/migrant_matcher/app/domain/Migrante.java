@@ -3,6 +3,8 @@ package migrant_matcher.app.domain;
 import java.util.LinkedList;
 import java.util.List;
 
+import migrant_matcher.app.domain.catalogos.CatalogoAjudas;
+
 public class Migrante {
     
     private String nTelefone;
@@ -25,6 +27,10 @@ public class Migrante {
 
     public void addAjudasUsadas(List<Ajuda> ajudasSelecionadas) {
         this.ajudasUsadas.addAll(ajudasSelecionadas);
+        //remove them from the catalogo
+        for(Ajuda a: ajudasSelecionadas){
+            CatalogoAjudas.getInstance().removeAjuda(a);
+        }
     }
 
     public List<Ajuda> getAjudasUsadas() {
