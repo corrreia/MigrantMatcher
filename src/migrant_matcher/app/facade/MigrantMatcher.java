@@ -2,8 +2,6 @@ package migrant_matcher.app.facade;
 
 import java.util.List;
 
-import migrant_matcher.app.domain.Alojamento;
-import migrant_matcher.app.domain.Regiao;
 import migrant_matcher.app.domain.catalogos.CatalogoAjudas;
 import migrant_matcher.app.domain.catalogos.CatalogoMigrantes;
 import migrant_matcher.app.domain.catalogos.CatalogoRegiao;
