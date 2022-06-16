@@ -125,8 +125,7 @@ public class MigranteUseCase {
 
                 for(AjudaDTO a : ajudas){
                     System.out.println(
-                    "    - [" + a.getId() +
-                    "] (" + (a instanceof ItemDTO ? "ITEM" : "ALOJAMENTO") + ") " +
+                    "    - [" + a.getId() + "] " +
                      (a instanceof ItemDTO ? 
                      ("Item: " + ((ItemDTO) a).getDescricao()) : 
                      ("Alojamento : " + ((AlojDTO) a).getRegiao().getNome()))

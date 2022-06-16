@@ -2,9 +2,7 @@ package migrant_matcher.client;
 
 import java.util.Scanner;
 
-import migrant_matcher.app.domain.Alojamento;
 import migrant_matcher.app.domain.Regiao;
-import migrant_matcher.app.domain.catalogos.CatalogoAjudas;
 import migrant_matcher.app.facade.MigrantMatcher;
 
 public class Client {
@@ -14,10 +12,28 @@ public class Client {
         
                 
         //LOCAL ONDE É PREENCHIDOS OS CATALOGOS
-        app.catalogoRegiao.adicionarRegiao(new Regiao("Norte"));
-        app.catalogoRegiao.adicionarRegiao(new Regiao("Sul"));
-        app.catalogoRegiao.adicionarRegiao(new Regiao("Leste"));
-        app.catalogoRegiao.adicionarRegiao(new Regiao("Oeste"));
+        Regiao Norte = new Regiao("Norte");
+        app.catalogoRegiao.adicionarRegiao(Norte);
+
+        Regiao Sul = new Regiao("Sul");
+        app.catalogoRegiao.adicionarRegiao(Sul);
+
+        Regiao Leste = new Regiao("Leste");
+        app.catalogoRegiao.adicionarRegiao(Leste);
+
+        Regiao Oeste = new Regiao("Oeste");
+        app.catalogoRegiao.adicionarRegiao(Oeste);
+
+
+        // app.catalogoAjudas.adicionarAjuda(new Alojamento("936655666", 543, Norte));
+        // app.catalogoAjudas.adicionarAjuda(new Item("966645654", "pao"));
+        // app.catalogoAjudas.adicionarAjuda(new Item("966645654", "ovo"));
+        // app.catalogoAjudas.adicionarAjuda(new Alojamento("966645654", 32, Sul));
+        // app.catalogoAjudas.adicionarAjuda(new Alojamento("966645654", 32, Norte));
+        // app.catalogoAjudas.adicionarAjuda(new Item("966645654", "banana"));
+        // app.catalogoAjudas.adicionarAjuda(new Alojamento("966645654", 32, Oeste));
+        // app.catalogoAjudas.adicionarAjuda(new Item("966645654", "laranja"));
+
 
         //=====================================
 

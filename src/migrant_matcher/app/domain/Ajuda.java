@@ -1,16 +1,16 @@
 package migrant_matcher.app.domain;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Ajuda {
 
     private int id;
     private String ownerNr;
-    private LocalDate data;
+    private LocalDateTime data;
 
     public Ajuda(String ownerNr) {
         this.ownerNr = ownerNr;
-        this.data = LocalDate.now();
+        this.data = LocalDateTime.now();
     }
 
     public void setId(int id) {
@@ -21,7 +21,7 @@ public class Ajuda {
         return id;
     }
 
-    public LocalDate getData() {
+    public LocalDateTime getData() {
         return data;
     }
 

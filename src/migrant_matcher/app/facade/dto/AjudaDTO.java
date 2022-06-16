@@ -1,6 +1,6 @@
 package migrant_matcher.app.facade.dto;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import migrant_matcher.app.domain.Ajuda;
 
@@ -8,18 +8,19 @@ public class AjudaDTO {
 
     private int id;
     private String ownerNr;
-    private LocalDate data;
+    private LocalDateTime data;
 
     public AjudaDTO(Ajuda ajuda) {
         this.ownerNr = ajuda.getOwnerNr();
         this.data = ajuda.getData();
+        this.id = ajuda.getId();
     }
 
     public int getId() {
         return id;
     }
 
-    public LocalDate getData() {
+    public LocalDateTime getData() {
         return data;
     }
 

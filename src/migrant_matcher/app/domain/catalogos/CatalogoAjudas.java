@@ -28,7 +28,8 @@ public class CatalogoAjudas {
     }
 
     public void adicionarAjuda(Ajuda ajuda) {
-        ajuda.setId(idCounter++);
+        ajuda.setId(idCounter);
+        idCounter++;
         catAjudas.add(ajuda);
     }
 

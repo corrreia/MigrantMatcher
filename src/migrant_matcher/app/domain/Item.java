@@ -20,7 +20,7 @@ public class Item extends Ajuda {
     @Override
     public String toString() {
         return "Item [descricao=" + descricao + ", contactoProprietario: " + super.getOwnerNr() + ", data:" + 
-        super.getData() + "]";
+        super.getData() + ", id:" + super.getId() + "]";
     }
 
     @Override

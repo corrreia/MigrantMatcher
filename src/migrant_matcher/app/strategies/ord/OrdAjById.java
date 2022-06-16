@@ -5,22 +5,23 @@ import java.util.Comparator;
 import java.util.List;
 
 import migrant_matcher.app.domain.Ajuda;
-import migrant_matcher.app.domain.Alojamento;
 
-public class OrdAjFstAloj implements OrdAjStrat{
+public class OrdAjById implements OrdAjStrat{
 
     @Override
     public List<Ajuda> ordListAj(List<Ajuda> ajudaList) {
         Collections.sort(ajudaList, new Comparator<Ajuda>() {
             @Override
             public int compare(Ajuda a1, Ajuda a2) {
-                if(a1 instanceof Alojamento){
+                if(a1.getId() < (a2.getId()))
                     return -1;
-                }
-                return 1;
+                else if(a1.getId() > (a2.getId()))
+                    return 1;
+                else
+                    return 0;
             }
         });
         return ajudaList;
     }
-    
+
 }

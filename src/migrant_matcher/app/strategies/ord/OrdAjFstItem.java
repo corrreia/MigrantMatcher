@@ -14,10 +14,10 @@ public class OrdAjFstItem implements OrdAjStrat{
         Collections.sort(ajudaList, new Comparator<Ajuda>() {
             @Override
             public int compare(Ajuda a1, Ajuda a2) {
-                if(a2 instanceof Item){
+                if(a1 instanceof Item){
                     return -1;
                 }
-                return 0;
+                return 1;
             }
         });
         return ajudaList;
