@@ -9,6 +9,8 @@ import migrant_matcher.app.domain.Alojamento;
 import migrant_matcher.app.domain.Item;
 import migrant_matcher.app.domain.Regiao;
 import migrant_matcher.app.facade.dto.AjudaDTO;
+import migrant_matcher.app.facade.dto.AlojDTO;
+import migrant_matcher.app.facade.dto.ItemDTO;
 
 public class CatalogoAjudas {
     
@@ -59,9 +61,15 @@ public class CatalogoAjudas {
         return catAjudas.stream().filter(aj -> aj.getId() == ajuda.getId()).findFirst().get();
     }
 
-    public boolean isValidAjuda(AjudaDTO ajuda) {  //FIXME: completamente broken
-        return catAjudas.stream().anyMatch(aj -> aj.getId() == ajuda.getId() && aj.getClass().getSimpleName().equals(ajuda.getClass().getSimpleName()));
-    }
+    // public boolean isValidAjuda(AjudaDTO ajuda) {  //FIXME: completamente broken
+    //     boolean valid = false;
+    //     if(ajuda instanceof ItemDTO && getAjudaById(ajuda.getId()) instanceof Item) {
+    //         valid = ((Item) getAjudaById(ajuda.getId())).getDescricao().equals(((ItemDTO) ajuda).getDescricao());
+    //     } else if(ajuda instanceof AlojDTO && getAjudaById(ajuda.getId()) instanceof Alojamento) {
+    //         valid = ((Alojamento) getAjudaById(ajuda.getId())).getRegiao().equals(((AlojDTO) ajuda).getRegiao());  
+    //     }
+    //     return valid;
+    // }
 
     public int sizeCatalogo() {
         return catAjudas.size();
