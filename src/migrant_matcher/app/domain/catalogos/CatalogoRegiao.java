@@ -2,11 +2,13 @@ package migrant_matcher.app.domain.catalogos;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import migrant_matcher.app.domain.Regiao;
+import migrant_matcher.app.facade.dto.RegiaoDTO;
 
 public class CatalogoRegiao {
-    private List<Regiao> catRegiao;
+    private static List<Regiao> catRegiao;
     private static CatalogoRegiao INSTANCE;
 
     private CatalogoRegiao() {
@@ -24,16 +26,20 @@ public class CatalogoRegiao {
         catRegiao.add(regiao);
     }
 
-    public List<Regiao> getRegioes() {
+    public static List<Regiao> getRegioes() {
         return catRegiao;
     }
 
-    public Regiao getRegiao(String nome) {
-        return catRegiao.stream().filter(reg -> reg.getNome().equals(nome)).findFirst().get();
+    public static List<RegiaoDTO> getRegioesDTO() {
+        return catRegiao.stream().map(RegiaoDTO::new).collect(Collectors.toList());
     }
 
-    public boolean isValidRegiao(String regiao) {
-        return catRegiao.stream().anyMatch(reg -> reg.getNome().equals(regiao));
+    public Regiao getRegiao(RegiaoDTO reg) {
+        return catRegiao.stream().filter(r -> r.getNome().equals(reg.getNome())).findFirst().get();
+    }
+
+    public boolean isValidRegiao(RegiaoDTO reg) {
+        return catRegiao.stream().anyMatch(r -> r.getNome().equals(reg.getNome()));
     }
 
 }

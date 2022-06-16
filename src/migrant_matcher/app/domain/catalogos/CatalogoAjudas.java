@@ -8,10 +8,11 @@ import migrant_matcher.app.domain.Ajuda;
 import migrant_matcher.app.domain.Alojamento;
 import migrant_matcher.app.domain.Item;
 import migrant_matcher.app.domain.Regiao;
+import migrant_matcher.app.facade.dto.AjudaDTO;
 
 public class CatalogoAjudas {
     
-    private List<Ajuda> catAjudas;
+    private static List<Ajuda> catAjudas;
     private static CatalogoAjudas INSTANCE;
     private int idCounter = 0;
 
@@ -43,5 +44,17 @@ public class CatalogoAjudas {
 
     public List<Ajuda> getAjudas(){
         return catAjudas;
+    }
+
+    public List<AjudaDTO> getAjudasDTO() {
+        return catAjudas.stream().map(AjudaDTO::new).collect(Collectors.toList());
+    }
+
+    public Ajuda getAjuda(AjudaDTO ajuda) {
+        return catAjudas.stream().filter(aj -> aj.getId() == ajuda.getId()).findFirst().get();
+    }
+
+    public boolean isValidAjuda(AjudaDTO ajuda) {
+        return catAjudas.stream().anyMatch(aj -> aj.getId() == ajuda.getId() && aj.getClass().getSimpleName().equals(ajuda.getClass().getSimpleName()));
     }
 }

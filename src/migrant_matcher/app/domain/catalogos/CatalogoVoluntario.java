@@ -3,6 +3,7 @@ package migrant_matcher.app.domain.catalogos;
 import java.util.LinkedList;
 import java.util.List;
 import migrant_matcher.app.domain.Voluntario;
+import migrant_matcher.app.facade.dto.VolDTO;
 
 public class CatalogoVoluntario {
     
@@ -20,23 +21,23 @@ public class CatalogoVoluntario {
         return INSTANCE;
     }
 
-    public boolean adicionarVoluntarios(Voluntario voluntario){
+    public Voluntario adicionarVoluntario(Voluntario voluntario){
         if(!catVoluntario.contains(voluntario)){
             catVoluntario.add(voluntario);
-            return true;
+            return voluntario;
         }
-        return false;
+        return null;
     }
 
     public List<Voluntario> getVoluntarios() {
         return catVoluntario;
     }
 
-    public boolean voluntarioExistente(String nTelefone) {
-        return catVoluntario.stream().anyMatch(v -> v.getNumeroTelefone().equals(nTelefone));
+    public boolean voluntarioExistente(VolDTO voluntario) {
+        return catVoluntario.stream().anyMatch(v -> v.getNumeroTelefone().equals(voluntario.getNrTelefone()));
     }
 
-	public Voluntario getVoluntario(String nTelefone) {
-		return catVoluntario.stream().filter(v -> v.getNumeroTelefone().equals(nTelefone)).findFirst().get();
+	public Voluntario getVoluntario(VolDTO voluntario) {
+		return catVoluntario.stream().filter(v -> v.getNumeroTelefone().equals(voluntario.getNrTelefone())).findFirst().get();
 	}
 }

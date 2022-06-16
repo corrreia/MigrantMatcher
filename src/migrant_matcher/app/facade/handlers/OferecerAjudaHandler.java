@@ -1,4 +1,4 @@
-package migrant_matcher.app.handlers;
+package migrant_matcher.app.facade.handlers;
 
 import java.util.List;
 
@@ -10,11 +10,13 @@ import migrant_matcher.app.domain.Voluntario;
 import migrant_matcher.app.domain.catalogos.CatalogoAjudas;
 import migrant_matcher.app.domain.catalogos.CatalogoRegiao;
 import migrant_matcher.app.domain.factory.SmsFactory;
+import migrant_matcher.app.facade.dto.RegiaoDTO;
 
-public class OferecerAjudaHandler { //handler para criar ajudas
+public class OferecerAjudaHandler{ //handler para criar ajudas
 
     private Voluntario v;
     private Ajuda a;
+    private Regiao r;
     private String authCode;
     private String authCodeWD;
 
@@ -22,12 +24,12 @@ public class OferecerAjudaHandler { //handler para criar ajudas
         this.v = v;
     }
 
-    public List<Regiao> nPessoasAlberga(int n){
+    public List<RegiaoDTO> nPessoasAlberga(int n){
         a = new Alojamento(v.getNumeroTelefone(), n);
-        return CatalogoRegiao.getInstance().getRegioes(); //.stream().map(reg -> reg.getNome()).collect(Collectors.toList())
+        return CatalogoRegiao.getRegioesDTO();
     }
 
-    public boolean indicarRegiao(String regiao){
+    public boolean indicarRegiao(RegiaoDTO regiao){
         if(CatalogoRegiao.getInstance().isValidRegiao(regiao)){
             //a.setRegiao(CatalogoRegiao.getInstance().getRegiao(regiao));
             enviarSMS();

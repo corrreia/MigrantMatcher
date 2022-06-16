@@ -29,8 +29,46 @@ public class Ajuda {
         return ownerNr;
     }
 
+    
+
+    @Override
     public String toString() {
-        return this.getClass().getSimpleName() + "{" + "id=" + id + ", data=" + data.toString() + '}';
+        return "Ajuda [data=" + data + ", id=" + id + ", ownerNr=" + ownerNr + "]";
     }
 
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((data == null) ? 0 : data.hashCode());
+        result = prime * result + id;
+        result = prime * result + ((ownerNr == null) ? 0 : ownerNr.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Ajuda other = (Ajuda) obj;
+        if (data == null) {
+            if (other.data != null)
+                return false;
+        } else if (!data.equals(other.data))
+            return false;
+        if (id != other.id)
+            return false;
+        if (ownerNr == null) {
+            if (other.ownerNr != null)
+                return false;
+        } else if (!ownerNr.equals(other.ownerNr))
+            return false;
+        return true;
+    }
+
+    
 }

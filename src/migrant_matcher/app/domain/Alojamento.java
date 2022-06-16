@@ -34,7 +34,39 @@ public class Alojamento extends Ajuda{
 
     @Override
     public String toString() {
-        return "Alojamento{id=" + super.getId() + ", nPessoas=" + nPessoas + ", regiao=" + regiao + ", data=" + super.getData().toString() + '}';
+        return "Alojamento [nPessoas=" + nPessoas + ", regiao=" + regiao + "]";
     }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result + nPessoas;
+        result = prime * result + ((regiao == null) ? 0 : regiao.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (!super.equals(obj))
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Alojamento other = (Alojamento) obj;
+        if (nPessoas != other.nPessoas)
+            return false;
+        if (regiao == null) {
+            if (other.regiao != null)
+                return false;
+        } else if (!regiao.equals(other.regiao))
+            return false;
+        return true;
+    }
+
+    
+
+
 
 }
