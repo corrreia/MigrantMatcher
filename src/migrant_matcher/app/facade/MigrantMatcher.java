@@ -74,4 +74,8 @@ public class MigrantMatcher {
         return catalogoRegiao;
     }
 
+    public CatalogoMigrantes getCatalogoMigrantes() {
+        return catalogoMigrantes;
+    }
+
 }
