@@ -42,6 +42,12 @@ public class CatalogoMigrantes {
         return catMigrante.stream().filter(m -> m.getNTelefone().equals(migrante.getNrTelefone()) && m.getNome().equals(migrante.getNome())).findFirst().get();
     }
 
+    public void wipeCatalogo(){
+        if(catMigrante.size() > 0){
+            catMigrante.clear();
+        }
+    }
+
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for (Migrante migrante : catMigrante) {

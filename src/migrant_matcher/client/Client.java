@@ -9,7 +9,6 @@ public class Client {
     public static void main(String[] args) {
         MigrantMatcher app = new MigrantMatcher();
         Scanner scanner = new Scanner(System.in);
-        
                 
         //LOCAL ONDE É PREENCHIDOS OS CATALOGOS
         Regiao Norte = new Regiao("Norte");

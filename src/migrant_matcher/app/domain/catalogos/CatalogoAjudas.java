@@ -67,6 +67,13 @@ public class CatalogoAjudas {
         return catAjudas.size();
     }
 
+    public void wipeCatalogo(){
+        if(catAjudas.size() > 0){
+            catAjudas.clear();
+        }
+        idCounter = 0;
+    }
+
     public String toString(){
         StringBuilder bob = new StringBuilder();
         for(Ajuda ajuda : catAjudas){

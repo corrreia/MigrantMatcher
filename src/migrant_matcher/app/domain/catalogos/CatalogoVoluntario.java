@@ -42,6 +42,12 @@ public class CatalogoVoluntario {
 
 	}
 
+    public void wipeCatalogo(){
+        if(catVoluntario.size() > 0){
+            catVoluntario.clear();
+        }
+    }
+
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for (Voluntario v : catVoluntario) {
