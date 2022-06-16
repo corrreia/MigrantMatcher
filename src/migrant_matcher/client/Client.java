@@ -2,8 +2,6 @@ package migrant_matcher.client;
 
 import java.util.Scanner;
 
-// import migrant_matcher.app.domain.Alojamento;
-// import migrant_matcher.app.domain.Item;
 import migrant_matcher.app.domain.Regiao;
 import migrant_matcher.app.domain.factory.OrdAjFactory;
 import migrant_matcher.app.facade.MigrantMatcher;
@@ -12,7 +10,7 @@ public class Client {
     public static void main(String[] args) {
         MigrantMatcher app = new MigrantMatcher();
         Scanner scanner = new Scanner(System.in);
-                
+
         //LOCAL ONDE SÃO PREENCHIDOS OS CATALOGOS
         Regiao Lisboa = new Regiao("Lisboa");
         app.catalogoRegiao.adicionarRegiao(Lisboa);
@@ -67,6 +65,8 @@ public class Client {
 
         Regiao VianaDoCastelo = new Regiao("Viana Do Castelo");
         app.catalogoRegiao.adicionarRegiao(VianaDoCastelo);
+
+        
 
         // app.catalogoAjudas.adicionarAjuda(new Alojamento("936655666", 543, Norte));
         // app.catalogoAjudas.adicionarAjuda(new Item("966645654", "pao"));
