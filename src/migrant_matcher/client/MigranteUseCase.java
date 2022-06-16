@@ -141,8 +141,12 @@ public class MigranteUseCase {
             System.out.println("Pretende pedir mais ajudas? (s/n)");
             if(!scanner.nextLine().equals("s")) mais = false;
         }
-        if(handler.confirmarSelecao())
-            System.out.println("Selecao confirmada!, entretanto o voluntario vai entrar em contacto consigo.");
+
+        List<AjudaDTO> ajudasPedidas = handler.confirmarSelecao();
+
+        if(ajudasPedidas != null) {
+            System.out.println("Selecao confirmada!\n" + ajudasPedidas + "\nEentretanto o voluntario vai entrar em contacto consigo.");
+        }
         else
             System.out.println("Algo correu mal.");
     }

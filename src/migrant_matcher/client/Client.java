@@ -14,59 +14,24 @@ public class Client {
         Scanner scanner = new Scanner(System.in);
                 
         //LOCAL ONDE SÃO PREENCHIDOS OS CATALOGOS
-        Regiao Lisboa = new Regiao("Lisboa");
-        app.catalogoRegiao.adicionarRegiao(Lisboa);
-
-        Regiao Porto = new Regiao("Porto");
-        app.catalogoRegiao.adicionarRegiao(Porto);
-
-        Regiao Guarda = new Regiao("Guarda");
-        app.catalogoRegiao.adicionarRegiao(Guarda);
-
-        Regiao Aveiro = new Regiao("Aveiro");
-        app.catalogoRegiao.adicionarRegiao(Aveiro);
-
-        Regiao Coimbra = new Regiao("Coimbra");
-        app.catalogoRegiao.adicionarRegiao(Coimbra);
-
-        Regiao Viseu = new Regiao("Viseu");
-        app.catalogoRegiao.adicionarRegiao(Viseu);
-
-        Regiao Braga = new Regiao("Braga");
-        app.catalogoRegiao.adicionarRegiao(Braga);
-
-        Regiao Portalegre = new Regiao("Portalegre");
-        app.catalogoRegiao.adicionarRegiao(Portalegre);
-
-        Regiao Setubal = new Regiao("Setubal");
-        app.catalogoRegiao.adicionarRegiao(Setubal);
-
-        Regiao Faro = new Regiao("Faro");
-        app.catalogoRegiao.adicionarRegiao(Faro);
-
-        Regiao Beja = new Regiao("Beja");
-        app.catalogoRegiao.adicionarRegiao(Beja);
-
-        Regiao Braganca = new Regiao("Braganca");
-        app.catalogoRegiao.adicionarRegiao(Braganca);
-
-        Regiao Leiria = new Regiao("Leiria");
-        app.catalogoRegiao.adicionarRegiao(Leiria);
-
-        Regiao Vila_Real = new Regiao("Vila Real");
-        app.catalogoRegiao.adicionarRegiao(Vila_Real);
-
-        Regiao Castelo_Branco = new Regiao("Castelo Branco");
-        app.catalogoRegiao.adicionarRegiao(Castelo_Branco);
-
-        Regiao Santarem = new Regiao("Santarem");
-        app.catalogoRegiao.adicionarRegiao(Santarem);
-
-        Regiao Evora = new Regiao("Evora");
-        app.catalogoRegiao.adicionarRegiao(Evora);
-
-        Regiao VianaDoCastelo = new Regiao("Viana Do Castelo");
-        app.catalogoRegiao.adicionarRegiao(VianaDoCastelo);
+        app.catalogoRegiao.adicionarRegiao(new Regiao("Lisboa"));
+        app.catalogoRegiao.adicionarRegiao(new Regiao("Porto"));
+        app.catalogoRegiao.adicionarRegiao(new Regiao("Guarda"));
+        app.catalogoRegiao.adicionarRegiao(new Regiao("Aveiro"));
+        app.catalogoRegiao.adicionarRegiao(new Regiao("Coimbra"));
+        app.catalogoRegiao.adicionarRegiao(new Regiao("Viseu"));
+        app.catalogoRegiao.adicionarRegiao(new Regiao("Braga"));
+        app.catalogoRegiao.adicionarRegiao(new Regiao("Portalegre"));
+        app.catalogoRegiao.adicionarRegiao(new Regiao("Setubal"));
+        app.catalogoRegiao.adicionarRegiao(new Regiao("Faro"));
+        app.catalogoRegiao.adicionarRegiao(new Regiao("Beja"));
+        app.catalogoRegiao.adicionarRegiao(new Regiao("Braganca"));
+        app.catalogoRegiao.adicionarRegiao(new Regiao("Leiria"));
+        app.catalogoRegiao.adicionarRegiao(new Regiao("Vila Real"));
+        app.catalogoRegiao.adicionarRegiao(new Regiao("Castelo Branco"));
+        app.catalogoRegiao.adicionarRegiao(new Regiao("Santarem"));
+        app.catalogoRegiao.adicionarRegiao(new Regiao("Evora"));
+        app.catalogoRegiao.adicionarRegiao(new Regiao("Viana Do Castelo"));
 
         // app.catalogoAjudas.adicionarAjuda(new Alojamento("936655666", 543, Norte));
         // app.catalogoAjudas.adicionarAjuda(new Item("966645654", "pao"));

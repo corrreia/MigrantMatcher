@@ -52,7 +52,7 @@ public class PedirAjudaHandler{
         ajudasSelecionadas.add(CatalogoAjudas.getInstance().getAjuda(ajuda));
     }
 
-    public boolean confirmarSelecao(){
+    public List<AjudaDTO> confirmarSelecao(){
         try{
             m.addAjudasUsadas(ajudasSelecionadas);
                
@@ -64,10 +64,11 @@ public class PedirAjudaHandler{
                 ") foi selecionada por um migrante. \n" 
                 + "Pode entrar em contacto com o mesmo/a pelo número de telemóvel: " + m.getNTelefone());
             }  
-            return true;
+            //terurn ajudas usadas
+            return ajudasSelecionadas.stream().map(a -> a instanceof Item ? new ItemDTO((Item) a) : new AlojDTO((Alojamento)a)).collect(Collectors.toList());
         }catch (Exception e){
             e.printStackTrace();
-            return false;
+            return null;
         }
     }
 
