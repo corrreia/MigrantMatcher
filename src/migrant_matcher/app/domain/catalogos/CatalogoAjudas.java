@@ -81,4 +81,8 @@ public class CatalogoAjudas {
         }
         return bob.toString();
     }
+
+    public void removeAjuda(Ajuda a) {
+        catAjudas.remove(a);
+    }
 }

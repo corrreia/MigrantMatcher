@@ -3,30 +3,60 @@ package migrant_matcher.app.domain;
 import java.util.LinkedList;
 import java.util.List;
 
+import migrant_matcher.app.domain.catalogos.CatalogoAjudas;
+
+/**
+ * Classe que representa um objeto Migrante.
+ */
 public class Migrante {
     
     private String nTelefone;
     private String nome;
     private List<Ajuda> ajudasUsadas;
 
+    /**
+     * Construtor de Migrante.
+     * @param nTelefone número de telemóvel do migrante
+     * @param nome nome do migrante
+     */
     public Migrante(String nTelefone, String nome) {
         this.nTelefone = nTelefone;
         this.nome = nome;
         this.ajudasUsadas = new LinkedList<Ajuda>();
     }
 
+    /**
+     * Getter do número de telemóvel do migrante
+     * @return número de telemóvel do migrante
+     */
     public String getNTelefone() {
         return nTelefone;
     }
 
+    /**
+     * Getter do nome do migrante
+     * @return nome do migrante
+     */
     public String getNome() {
         return nome;
     }
 
+    /**
+     * Adiciona ajudas à lista de ajudas usadas pelo migrante
+     * @param ajudasSelecionadas ajudas
+     */
     public void addAjudasUsadas(List<Ajuda> ajudasSelecionadas) {
         this.ajudasUsadas.addAll(ajudasSelecionadas);
+        //remove them from the catalogo
+        for(Ajuda a: ajudasSelecionadas){
+            CatalogoAjudas.getInstance().removeAjuda(a);
+        }
     }
 
+    /**
+     * Getter da lista de ajudas usadas pelo migrante
+     * @return lista de ajudas usadas pelo migrante
+     */
     public List<Ajuda> getAjudasUsadas() {
         return ajudasUsadas;
     }

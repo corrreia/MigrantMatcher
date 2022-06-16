@@ -3,25 +3,44 @@ package migrant_matcher.app.domain;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Classe que representa um objeto de Familia.
+ */
 public class Familia extends Migrante {
 
     private List<Membro> membros = new LinkedList<Membro>();;
     
+    /**
+     * Construtor de Familia.
+     * @param nTefefone número de telemóvel do dono da familia
+     * @param nomeChefeCasal nome do chefe da familia
+     */
 	public Familia(String nTelefone, String nomeChefeCasal) {
 		super(nTelefone, nomeChefeCasal);
         //membros.add(new Membro(nomeChefeCasal));
 	}
 
+    /**
+     * Getter da lista de membros da familia
+     * @return lista de membros
+     */
     public List<Membro> getMembros() {
         return membros;
     }
 
+    /**
+     * Adiciona um membro à lista de membros da familia
+     * @param membro membro a adicionar
+     */
     public void addMembro(Membro membro) {
         membros.add(membro);
     }
 
+    /**
+     * @return quantidade de membros da familia
+     */
     public int getQuantidadeMembros() {
-        return membros.size();
+        return membros.size() + 1;
     }
 
     @Override

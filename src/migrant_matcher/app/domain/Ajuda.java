@@ -20,18 +20,33 @@ public class Ajuda {
         this.data = LocalDateTime.now();
     }
 
+    /**
+     * Setter do id.
+     * @param id
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * Getter do id.
+     * @return id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Getter do data de criaçao da ajuda
+     * @return
+     */
     public LocalDateTime getData() {
         return data;
     }
 
+    /**
+     * Getter do número de telemóvel do dono da ajuda
+     */
     public String getOwnerNr() {
         return ownerNr;
     }

@@ -1,18 +1,34 @@
 package migrant_matcher.app.domain;
 
+/**
+ * Classe que representa um objeto de Item.
+ */
 public class Item extends Ajuda {
     
     private String descricao;
 
+    /**
+     * Construtor de Item.
+     * @param ownerNr número de telemóvel do dono da ajuda
+     * @param descricao descrição do item
+     */
     public Item(String ownerNr,String descricao) {
         super(ownerNr);
         this.descricao = descricao;
     }
 
+    /**
+     * Setter da descrição do item.
+     * @param descricao descrição do item
+     */
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 
+    /**
+     * Getter da descrição do item.
+     * @return descrição do item
+     */
     public String getDescricao() {
         return descricao;
     }

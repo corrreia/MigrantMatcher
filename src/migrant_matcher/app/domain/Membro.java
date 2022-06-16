@@ -1,12 +1,23 @@
 package migrant_matcher.app.domain;
 
+/** 
+ * Classe que representa um objeto de Membro.
+ */
 public class Membro {
     private String nome;
 
+    /**
+     * Construtor de Membro.
+     * @param nome nome do membro
+     */
     public Membro(String nome) {
         this.nome = nome;
     }
 
+    /**
+     * Getter do nome do membro
+     * @return nome do membro
+     */
     public String getNome() {
         return nome;
     }
