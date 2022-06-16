@@ -21,4 +21,8 @@ public class OrdAjFactory {
     public OrdAjStrat getOrdAjStrat() {
         return Configuration.getConfiguration().getInstanceOfClass("help_order_strategy", new OrdAjAscDate()); 
     }
+
+    public OrdAjStrat getOrdAjStrat(String strategyName) {  //used for tests
+        return Configuration.getConfiguration().getInstanceOfClass(strategyName, new OrdAjAscDate()); 
+    }
 }

@@ -61,16 +61,6 @@ public class CatalogoAjudas {
         return catAjudas.stream().filter(aj -> aj.getId() == ajuda.getId()).findFirst().get();
     }
 
-    // public boolean isValidAjuda(AjudaDTO ajuda) {  //FIXME: completamente broken
-    //     boolean valid = false;
-    //     if(ajuda instanceof ItemDTO && getAjudaById(ajuda.getId()) instanceof Item) {
-    //         valid = ((Item) getAjudaById(ajuda.getId())).getDescricao().equals(((ItemDTO) ajuda).getDescricao());
-    //     } else if(ajuda instanceof AlojDTO && getAjudaById(ajuda.getId()) instanceof Alojamento) {
-    //         valid = ((Alojamento) getAjudaById(ajuda.getId())).getRegiao().equals(((AlojDTO) ajuda).getRegiao());  
-    //     }
-    //     return valid;
-    // }
-
     public int sizeCatalogo() {
         return catAjudas.size();
     }

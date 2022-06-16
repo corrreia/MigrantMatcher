@@ -18,7 +18,9 @@ public class MigrantMatcher {
     private CatalogoAjudas catalogoAjudas;   
     private CatalogoMigrantes catalogoMigrantes;
     private CatalogoVoluntario catalogoVoluntario;  
-    public CatalogoRegiao catalogoRegiao;  //apenas publico devido ao facto de ter que ser preenchido em Client.java
+    public CatalogoRegiao catalogoRegiao;  //apenas publico devido ao facto de ter que ser preenchido em Client.java 
+    // na versao final não devem existir
+    // pois podem gerar problemas de segurança
 
     public MigrantMatcher() {
         this.catalogoAjudas = CatalogoAjudas.getInstance();
