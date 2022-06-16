@@ -1,5 +1,7 @@
 package migrant_matcher.app.domain.factory;
 
+import java.lang.reflect.Constructor;
+
 import migrant_matcher.app.Configuration;
 import migrant_matcher.app.strategies.ord.OrdAjAscDate;
 import migrant_matcher.app.strategies.ord.OrdAjStrat;
@@ -22,7 +24,20 @@ public class OrdAjFactory {
         return Configuration.getConfiguration().getInstanceOfClass("help_order_strategy", new OrdAjAscDate()); 
     }
 
-    public OrdAjStrat getOrdAjStrat(String strategyName) {  //used for tests
-        return Configuration.getConfiguration().getInstanceOfClass(strategyName, new OrdAjAscDate()); 
-    }
+    public <T> OrdAjStrat getOrdAjStrat(String klassName) {  //used for tests
+		if (klassName == null) {
+			return new OrdAjAscDate();
+		}
+		
+		try {
+			@SuppressWarnings("unchecked")
+			Class<T> klass = (Class<T>) Class.forName(klassName);
+			Constructor<T> c = klass.getConstructor();
+			return (OrdAjStrat) c.newInstance();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return new OrdAjAscDate();
+	}
 }

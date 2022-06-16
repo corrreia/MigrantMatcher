@@ -1,16 +1,14 @@
 package migrant_matcher.app.domain.catalogos;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import migrant_matcher.app.domain.Ajuda;
 import migrant_matcher.app.domain.Alojamento;
 import migrant_matcher.app.domain.Item;
 import migrant_matcher.app.domain.Regiao;
 import migrant_matcher.app.facade.dto.AjudaDTO;
-import migrant_matcher.app.facade.dto.AlojDTO;
-import migrant_matcher.app.facade.dto.ItemDTO;
 
 public class CatalogoAjudas {
     
@@ -70,6 +68,10 @@ public class CatalogoAjudas {
             catAjudas.clear();
         }
         idCounter = 0;
+    }
+
+    public void shuffleCatalogo(){
+        Collections.shuffle(catAjudas);
     }
 
     public String toString(){

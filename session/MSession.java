@@ -15,6 +15,15 @@ public class MSession {
         this.migrante = migrante;  
     }
 
+    public MigDTO getMigrante() {
+        return new MigDTO(migrante);
+    }
+
+    public FamDTO getFamilia() {
+        return new FamDTO((Familia) migrante);
+    }
+
+
     public PedirAjudaHandler getPedirAjudaHandler() {
         return new PedirAjudaHandler(migrante);
     }
@@ -33,13 +42,5 @@ public class MSession {
                 familia.addMembro(new Membro(m.getNome()));
             return new MSession(familia);
         }
-    }
-
-    public FamDTO getFamilia() {
-        return new FamDTO((Familia) migrante);
     }  
-
-    public MigDTO getMigrante() {
-        return new MigDTO(migrante);
-    }
 }

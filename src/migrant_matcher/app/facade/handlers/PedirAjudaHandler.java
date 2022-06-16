@@ -48,15 +48,8 @@ public class PedirAjudaHandler{
         return null; 
     }
 
-    public boolean indicarAjuda(AjudaDTO ajuda){
-        //if(CatalogoAjudas.getInstance().isValidAjuda(ajuda)){
-            
-            ajudasSelecionadas.add(CatalogoAjudas.getInstance().getAjuda(ajuda));
-            
-            return true;
-        //}
-        
-        //return false;
+    public void indicarAjuda(AjudaDTO ajuda){  
+        ajudasSelecionadas.add(CatalogoAjudas.getInstance().getAjuda(ajuda));
     }
 
     public boolean confirmarSelecao(){

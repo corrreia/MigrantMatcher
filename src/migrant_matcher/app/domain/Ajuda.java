@@ -2,12 +2,19 @@ package migrant_matcher.app.domain;
 
 import java.time.LocalDateTime;
 
+/**
+ * Classe que representa um objeto de Ajuda.
+ */
 public class Ajuda {
 
     private int id;
     private String ownerNr;
     private LocalDateTime data;
 
+    /**
+     * Construtor de Ajuda.
+     * @param ownerNr número de telemóvel do dono da ajuda
+     */
     public Ajuda(String ownerNr) {
         this.ownerNr = ownerNr;
         this.data = LocalDateTime.now();

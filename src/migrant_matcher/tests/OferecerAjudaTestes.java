@@ -10,19 +10,22 @@ import migrant_matcher.app.facade.dto.RegiaoDTO;
 import migrant_matcher.app.facade.handlers.OferecerAjudaHandler;
 import migrant_matcher.app.facade.session.VSession;
 
-class OferecerAjudaTestes {
+public class OferecerAjudaTestes {
 
     private static MigrantMatcher testes = new MigrantMatcher();
 
     @Test
     void reconhecerVoluntarioTeste() {    
+        testes.wipeCatalogos(); 
         VSession session = testes.reconhecerVoluntario("920000000");
 
         assertEquals("920000000", session.getVoluntario().getNrTelefone());
+        testes.wipeCatalogos(); 
     }
 
     @Test
     void itemCriadoTeste() {
+        testes.wipeCatalogos();
         VSession session = testes.reconhecerVoluntario("920000000");
         OferecerAjudaHandler oah = session.getOferecerAjudaHandler();
         
@@ -40,11 +43,11 @@ class OferecerAjudaTestes {
         assertEquals(true, testes.getCatalogoAjudas().getAjudaById(1).toString().contains("contactoProprietario=" + "920000000"));
         assertEquals(true, testes.getCatalogoAjudas().getAjudaById(1).toString().contains("Papel Higienico"));
 
-        testes.wipeCatalogos();
     }
 
     @Test
     void alojamentoCriadoTeste() {
+        testes.wipeCatalogos(); 
         VSession session = testes.reconhecerVoluntario("920000000");
         OferecerAjudaHandler oah = session.getOferecerAjudaHandler();
 
@@ -71,11 +74,11 @@ class OferecerAjudaTestes {
         assertEquals(true, testes.getCatalogoAjudas().getAjudaById(1).toString().contains("nPessoas=5"));
         assertEquals(true, testes.getCatalogoAjudas().getAjudaById(1).toString().contains("Regiao [name=Porto]")); 
 
-        testes.wipeCatalogos(); 
     }
 
     @Test
     void codigosTeste() {
+        testes.wipeCatalogos(); 
         VSession session = testes.reconhecerVoluntario("920000000");
         OferecerAjudaHandler oah = session.getOferecerAjudaHandler();
 

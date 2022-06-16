@@ -102,51 +102,49 @@ public class MigranteUseCase {
     private static void help(Scanner scanner, PedirAjudaHandler handler) {
         System.out.println("Regioes disponiveis: "); 
 
-                for(RegiaoDTO r : handler.regioesDisponiveis()){
-                    System.out.println("    - " + r.getNome());
-                }
+        for(RegiaoDTO r : handler.regioesDisponiveis()){
+            System.out.println("    - " + r.getNome());
+        }
 
-                List<AjudaDTO> ajudas = null;
+        List<AjudaDTO> ajudas = null;
 
-                boolean validReg = false;
-                while(!validReg) {
-                    System.out.println("Por favor, indique a regiao:");
-                    String regiao = scanner.nextLine();
+        boolean validReg = false;
+        while(!validReg) {
+            System.out.println("Por favor, indique a regiao:");
+            String regiao = scanner.nextLine();
 
-                    ajudas = handler.indicarRegiao(new RegiaoDTO(regiao));
+            ajudas = handler.indicarRegiao(new RegiaoDTO(regiao));
 
-                    if(ajudas != null)
-                        validReg = true;
-                    else 
-                        System.out.println("Regiao inválida!, por favor, tente novamente.");
-                }
+            if(ajudas != null)
+                validReg = true;
+            else 
+                System.out.println("Regiao inválida!, por favor, tente novamente.");
+        }
 
-                System.out.println("Estas sao as ajudas disponiveis nessa regiao: ");
+        System.out.println("Estas sao as ajudas disponiveis nessa regiao: ");
 
-                for(AjudaDTO a : ajudas){
-                    System.out.println(
-                    "    - [" + a.getId() + "] " +
-                     (a instanceof ItemDTO ? 
-                     ("Item: " + ((ItemDTO) a).getDescricao()) : 
-                     ("Alojamento : " + ((AlojDTO) a).getRegiao().getNome()))
-                    );
-                }
+        for(AjudaDTO a : ajudas){
+            System.out.println(
+            "    - [" + a.getId() + "] " +
+                (a instanceof ItemDTO ? 
+                ("Item: " + ((ItemDTO) a).getDescricao()) : 
+                ("Alojamento : " + ((AlojDTO) a).getRegiao().getNome()))
+            );
+        }
 
-                
-
-                boolean mais = true;
-                while(mais) {
-                    System.out.println("Por favor, indique o ID da ajuda que pretende pedir:");
-                    int id = scanner.nextInt();
-                    scanner.nextLine();
-                    handler.indicarAjuda(ajudas.stream().filter(a -> a.getId() == id).findFirst().get());
-                    System.out.println("Pretende pedir mais ajudas? (s/n)");
-                    if(!scanner.nextLine().equals("s")) mais = false;
-                }
-                if(handler.confirmarSelecao())
-                    System.out.println("Selecao confirmada!, entretanto o voluntario vai entrar em contacto consigo.");
-                else
-                    System.out.println("Algo correu mal.");
+        boolean mais = true;
+        while(mais) {
+            System.out.println("Por favor, indique o ID da ajuda que pretende pedir:");
+            int id = scanner.nextInt();
+            scanner.nextLine();
+            handler.indicarAjuda(ajudas.stream().filter(a -> a.getId() == id).findFirst().get());
+            System.out.println("Pretende pedir mais ajudas? (s/n)");
+            if(!scanner.nextLine().equals("s")) mais = false;
+        }
+        if(handler.confirmarSelecao())
+            System.out.println("Selecao confirmada!, entretanto o voluntario vai entrar em contacto consigo.");
+        else
+            System.out.println("Algo correu mal.");
     }
 
     private static boolean isValidPhoneNumber(String numeroTelemovel) {

@@ -13,6 +13,11 @@ import migrant_matcher.app.facade.dto.VolDTO;
 import migrant_matcher.app.facade.session.MSession;
 import migrant_matcher.app.facade.session.VSession;
 
+/**
+ * Classe que representa o Facade do MigrantMatcher.
+ * @author Tomás Correia (fc56372)
+ * @author Miguel Pato (fc57102)
+ */
 public class MigrantMatcher {
 
     private CatalogoAjudas catalogoAjudas;   
