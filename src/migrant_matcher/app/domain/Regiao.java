@@ -1,13 +1,24 @@
 package migrant_matcher.app.domain;
 
+/**
+ * Classe que representa um objeto Regiao.
+ */
 public class Regiao {
     
     private String name;
 
+    /**
+     * Construtor de Regiao.
+     * @param name nome da região
+     */
     public Regiao(String name) {
         this.name = name;
     }
 
+    /**
+     * Getter do nome da região
+     * @return nome da região
+     */
     public String getNome() {
         return name;
     }

@@ -1,13 +1,24 @@
 package migrant_matcher.app.domain;
 
+/**
+ * Classe que representa um objeto Voluntario.
+ */
 public class Voluntario {
     
     private String contactNumber;
 
+    /**
+     * Construtor de Voluntario.
+     * @param contactNumber número de contacto do voluntário
+     */
     public Voluntario(String contactNumber) {
         this.contactNumber = contactNumber;
     }
 
+    /**
+     * Getter do número de contacto do voluntário
+     * @return número de contacto do voluntário
+     */
     public String getNumeroTelefone() {
         return this.contactNumber;
     }
