@@ -25,8 +25,7 @@ public class OrdAjById implements OrdAjStrat{
      */
     @Override
     public List<Ajuda> ordListAj(List<Ajuda> ajudaList) {
-
-        System.out.println("Ordenando ajudas por ID...");
+        
         Collections.sort(ajudaList, new Comparator<Ajuda>() {
             @Override
             public int compare(Ajuda a1, Ajuda a2) {

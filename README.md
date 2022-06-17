@@ -1,5 +1,10 @@
 # MigrantMatcher
+
+    IPORTANTE!!
+    No ficheiro Configuration.java o diretorio do ficheiro config.properties poden nao estar certo, é favor alterar se for o caso.
+
 Esta aplicacao visa recrutar voluntarios que possam oferecer ajudas a migrantes que delas necessitem.
+
 ## Dependencias
 
 O `MigrantMatcher` utiliza as seguintes dependencias:
