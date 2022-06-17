@@ -5,6 +5,9 @@ import java.util.List;
 
 /**
  * Classe que representa um objeto de Familia.
+ * 
+ * @author Miguel Pato | fc57102
+ * @author Tomás Correia | fc56372
  */
 public class Familia extends Migrante {
 
@@ -12,6 +15,7 @@ public class Familia extends Migrante {
     
     /**
      * Construtor de Familia.
+     * 
      * @param nTefefone número de telemóvel do dono da familia
      * @param nomeChefeCasal nome do chefe da familia
      */
@@ -22,6 +26,7 @@ public class Familia extends Migrante {
 
     /**
      * Getter da lista de membros da familia
+     * 
      * @return lista de membros
      */
     public List<Membro> getMembros() {
@@ -30,6 +35,7 @@ public class Familia extends Migrante {
 
     /**
      * Adiciona um membro à lista de membros da familia
+     * 
      * @param membro membro a adicionar
      */
     public void addMembro(Membro membro) {
@@ -37,17 +43,29 @@ public class Familia extends Migrante {
     }
 
     /**
+     * Método que retorna o numero de membros da familia
+     * 
      * @return quantidade de membros da familia
      */
     public int getQuantidadeMembros() {
         return membros.size() + 1;
     }
 
+    
+    /** 
+     * Método que imprime uma familia
+     * 
+     * @return String
+     */
     @Override
     public String toString() {
         return "Familia [membros=" + membros + "]";
     }
 
+    
+    /** 
+     * @return int
+     */
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -56,6 +74,11 @@ public class Familia extends Migrante {
         return result;
     }
 
+    
+    /** 
+     * @param obj
+     * @return boolean
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj)

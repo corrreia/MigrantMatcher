@@ -4,7 +4,9 @@ import migrant_matcher.app.domain.Migrante;
 
 /**
  * Classe que representa um DTO de Migrante.
- *
+ * 
+ * @author Miguel Pato | fc57102
+ * @author Tomás Correia | fc56372
  */
 public class MigDTO {
     
@@ -21,6 +23,8 @@ public class MigDTO {
     }
 
     /**
+     * Construtor de um migrante DTO a partir de um migrante.
+     * 
      * @return o nome do migrante
      */
     public MigDTO(Migrante migrante) {
@@ -29,6 +33,8 @@ public class MigDTO {
     }
 
     /**
+     * Método que retorna o nome de um migranteDTO.	
+     * 
      * @return o nome do migrante
      */
     public String getNome() {
@@ -36,12 +42,20 @@ public class MigDTO {
     }
 
     /**
+     * Método que retorna o nrTelefone de um migranteDTO.
+     * 
      * @return o número de telefone do migrante
      */
     public String getNrTelefone() {
         return nrTelefone;
     }
 
+    
+    /** 
+     * Método que imprime um migranteDTO
+     * 
+     * @return String   o que é impresso
+     */
     public String toString() {
         return "MigDTO{" + "nome=" + nome + ", nrTelefone=" + nrTelefone + '}' + "\n";
     }

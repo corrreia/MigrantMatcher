@@ -2,6 +2,9 @@ package migrant_matcher.app.domain;
 
 /**
  * Classe que representa um objeto Voluntario.
+ * 
+ * @author Miguel Pato | fc57102
+ * @author Tomás Correia | fc56372
  */
 public class Voluntario {
     
@@ -9,6 +12,7 @@ public class Voluntario {
 
     /**
      * Construtor de Voluntario.
+     * 
      * @param contactNumber número de contacto do voluntário
      */
     public Voluntario(String contactNumber) {
@@ -17,17 +21,28 @@ public class Voluntario {
 
     /**
      * Getter do número de contacto do voluntário
+     * 
      * @return número de contacto do voluntário
      */
     public String getNumeroTelefone() {
         return this.contactNumber;
     }
 
+    
+    /** 
+     * Método que imprime um Voluntario
+     * 
+     * @return String
+     */
     @Override
     public String toString() {
         return "Voluntario [contactNumber=" + contactNumber + "]";
     }
 
+    
+    /** 
+     * @return int
+     */
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -36,6 +51,11 @@ public class Voluntario {
         return result;
     }
 
+    
+    /** 
+     * @param obj
+     * @return boolean
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj)

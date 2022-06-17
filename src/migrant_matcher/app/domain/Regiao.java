@@ -2,6 +2,9 @@ package migrant_matcher.app.domain;
 
 /**
  * Classe que representa um objeto Regiao.
+ * 
+ * @author Miguel Pato | fc57102
+ * @author Tomás Correia | fc56372
  */
 public class Regiao {
     
@@ -23,11 +26,21 @@ public class Regiao {
         return name;
     }
 
+    
+    /** 
+     * Método que imprime uma Regiao
+     * 
+     * @return String
+     */
     @Override
     public String toString() {
         return "Regiao [name=" + name + "]";
     }
 
+    
+    /** 
+     * @return int
+     */
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -36,6 +49,11 @@ public class Regiao {
         return result;
     }
 
+    
+    /** 
+     * @param obj
+     * @return boolean
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj)

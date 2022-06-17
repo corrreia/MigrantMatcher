@@ -4,12 +4,26 @@ import java.util.List;
 import java.util.Scanner;
 
 import migrant_matcher.app.facade.*;
-import migrant_matcher.app.facade.handlers.*;
+import migrant_matcher.app.facade.controllers.*;
 import migrant_matcher.app.facade.session.*;
 import migrant_matcher.app.facade.dto.*;
 
+/**
+ * A classe {@code VoluntarioUseCase} serve como exemplo do primeiro
+ * caso de uso, exemplificando um produto final visto dos olhos
+ * do Voluntario
+ * 
+ * @author Miguel Pato | fc57102
+ * @author Tomás Correia | fc56372
+ */
 public class VoluntarioUseCase {
     
+    /** 
+     * Método Run que executa o caso de uso
+     * 
+     * @param app    - Instância do MigrantMatcher
+     * @param sc1    - Scanner para obter os inputs do utilizador
+     */
     public static void run(MigrantMatcher app, Scanner sc1) {
         
         System.out.println("-=MigrantMatcher=-\n");
@@ -63,6 +77,15 @@ public class VoluntarioUseCase {
         return nrTelefone.matches("\\d{9}");
     }
 
+    
+    /** 
+    * Método que verifica se um certo numero de
+    * telemovel é válido, se não for pede ao utilizador
+    * novamente até encontrar um que seja valido
+    * 
+    * @param scanner   - Scanner para obter os inputs do utilizador
+    * @return String   - Numero de telemovel valido
+    */
     private static String verificarNrTelemovel(Scanner sc1){
         boolean validPhoneNumber = false;
         String numeroTelemovel = "";
@@ -78,6 +101,14 @@ public class VoluntarioUseCase {
         return numeroTelemovel;
     }
 
+    
+    /** 
+     * Método que devolve um string que irá mostrar 
+     * ao utilizador a lista de regiões disponiveis
+     * 
+     * @param regioesDisponiveis    - Lista de regiões disponiveis
+     * @return String               - String que mostra a lista de regiões disponiveis
+     */
     private static String printRegioesDisponiveis(List<RegiaoDTO> regioesDisponiveis){
         StringBuilder bob = new StringBuilder();
         for(RegiaoDTO r : regioesDisponiveis){
@@ -86,7 +117,15 @@ public class VoluntarioUseCase {
         return bob.toString();
     }
 
-    private static void reagiaoAux( OferecerAjudaHandler oah, Scanner sc1){
+    
+    /** 
+     * Método auxiliar que permite ao utilizador escolher a regiao 
+     * do alojamento que pretende oferecer desde que esteja disponivel
+     * 
+     * @param oah   - OferecerAjudaHandler  
+     * @param sc1   - Scanner para obter os inputs do utilizador
+     */
+    private static void reagiaoAux(OferecerAjudaHandler oah, Scanner sc1){
         boolean regiaoExiste = false;
         System.out.print("Região: ");
         String regiao = sc1.nextLine();
@@ -106,6 +145,16 @@ public class VoluntarioUseCase {
         }
     }
 
+    
+    /** 
+     * Método que confirma a introdução do alojamento no sistema
+     * através de um código enviado por sms para o utlizador.
+     * Só é confirmada a ajuda quando utilizador inserir o código correto
+     * 
+     * @param regiaoEscolhida   - RegiaoDTO que representa a regiao escolhida pelo utilizador
+     * @param oah               - OferecerAjudaHandler
+     * @param sc1               - Scanner para obter os inputs do utilizador
+     */
     private static void codigoAloj(RegiaoDTO regiaoEscolhida, OferecerAjudaHandler oah, Scanner sc1){
         if(oah.indicarRegiao(regiaoEscolhida)){
             System.out.print("Codigo: ");
@@ -119,6 +168,15 @@ public class VoluntarioUseCase {
         }
     }
 
+    
+    /** 
+     * Método que confirma a introdução do Item no sistema
+     * através de um código enviado por sms para o utlizador.
+     * Só é confirmada a ajuda quando utilizador inserir o código correto
+     * 
+     * @param oah   - OferecerAjudaHandler
+     * @param sc1   - Scanner para obter os inputs do utilizador
+     */
     private static void codigoItem(OferecerAjudaHandler oah, Scanner sc1){
         System.out.println("Para terminar, introduza o código que recebeu no seu telemovel: ");
         String codigo = sc1.nextLine();

@@ -7,8 +7,23 @@ import java.util.List;
 import migrant_matcher.app.domain.Ajuda;
 import migrant_matcher.app.domain.Alojamento;
 
+/**
+ * A classe {@code OrdAjFstAloj} que implementa a interface {@OrdAjStrat}
+ * representa a estratégia de ordenação de ajudas que dá prioridade
+ * aos Alojamentos.
+ * 
+ * @author Miguel Pato | fc57102
+ * @author Tomás Correia | fc56372
+ */
 public class OrdAjFstAloj implements OrdAjStrat{
 
+    
+    /** 
+     * Ordena uma lista de forma aleatória
+     * 
+     * @param ajudaList     - Lista de ajudas a ordenar
+     * @return List<Ajuda>  - Lista de ajudas ordenada
+     */
     @Override
     public List<Ajuda> ordListAj(List<Ajuda> ajudaList) {
         Collections.sort(ajudaList, new Comparator<Ajuda>() {

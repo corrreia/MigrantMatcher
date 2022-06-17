@@ -2,7 +2,9 @@ package migrant_matcher.app.facade.dto;
 
 /**
  * Classe que representa um DTO de Membro.
- *
+ * 
+ * @author Miguel Pato | fc57102
+ * @author Tomás Correia | fc56372
  */
 public class MembroDTO {
 
@@ -10,6 +12,7 @@ public class MembroDTO {
 
     /**
      * Construtor de MembroDTO.
+     * 
      * @param membro objeto membro a ser convertido para DTO
      */
     public MembroDTO(String nome){
@@ -17,12 +20,20 @@ public class MembroDTO {
     }
 
     /**
+     * Método que retorna o nome de um membroDTO.
+     *
      * @return o nome do membro
      */
     public String getNome() {
         return nome;
     }
 
+    
+    /** 
+     * Método que imprime um membroDTO
+     * 
+     * @return String   o nome do membro
+     */
     @Override
     public String toString(){
         return "Nome: " + nome + "\n";

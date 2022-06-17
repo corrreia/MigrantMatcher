@@ -5,11 +5,26 @@ import java.util.List;
 import java.util.Scanner;
 
 import migrant_matcher.app.facade.*;
+import migrant_matcher.app.facade.controllers.PedirAjudaHandler;
 import migrant_matcher.app.facade.dto.*;
-import migrant_matcher.app.facade.handlers.PedirAjudaHandler;
 import migrant_matcher.app.facade.session.*;
 
+/**
+ * A classe {@code MigranteUseCase} serve como exemplo do segundo 
+ * caso de uso, exemplificando um produto final visto dos olhos
+ * do Migrante
+ * 
+ * @author Miguel Pato | fc57102
+ * @author Tomás Correia | fc56372
+ */
 public class MigranteUseCase {
+    
+    /** 
+     * Método Run que executa o caso de uso
+     * 
+     * @param app       - Instância do MigrantMatcher
+     * @param scanner   - Scanner para obter os inputs do utilizador
+     */
     public static void run(MigrantMatcher app, Scanner scanner) {
 
         System.out.println("-=MigrantMatcher=-\n");
@@ -84,6 +99,15 @@ public class MigranteUseCase {
         System.out.println("Programa terminado!");
     }
 
+    
+    /** 
+     * Método que verifica se um certo numero de
+     * telemovel é válido, se não for pede ao utilizador
+     * novamente até encontrar um que seja valido
+     * 
+     * @param scanner   - Scanner para obter os inputs do utilizador
+     * @return String   - Numero de telemovel valido
+     */
     private static String verificarNrTelemovel(Scanner scanner){
         boolean validPhoneNumber = false;
         String numeroTelemovel = "";
@@ -99,6 +123,17 @@ public class MigranteUseCase {
         return numeroTelemovel;
     }
 
+    
+    /** 
+     * Método que lida com todo o processo depois do Registo
+     * bem feito. 
+     * Mostra as regiões disponiveis, as ajudas disponiveis
+     * consoante a região escolhida e confirma a seleção
+     * quando o utilizaqr estiver satisfeito
+     * 
+     * @param scanner   - Scanner para obter os inputs do utilizador
+     * @param handler   - Handler para pedir ajuda
+     */
     private static void help(Scanner scanner, PedirAjudaHandler handler) {
         System.out.println("Regioes disponiveis: "); 
 
@@ -151,6 +186,14 @@ public class MigranteUseCase {
             System.out.println("Algo correu mal.");
     }
 
+    
+    /** 
+     * Método que verifica a validade de
+     * um numero de telemovel
+     * 
+     * @param numeroTelemovel   - Numero de telemovel a verificar
+     * @return boolean          - True se for valido, false se não for
+     */
     private static boolean isValidPhoneNumber(String numeroTelemovel) {
         String regex  = "^9[1236]\\d{7}$";
         return numeroTelemovel.matches(regex);

@@ -7,6 +7,8 @@ import migrant_matcher.app.domain.Ajuda;
 /**
  * Classe que representa um DTO de Ajuda.
  * 
+ * @author Miguel Pato | fc57102
+ * @author Tomás Correia | fc56372
  */
 public class AjudaDTO {
 
@@ -16,6 +18,7 @@ public class AjudaDTO {
 
     /**
      * Construtor de AjudaDTO.
+     * 
      * @param ajuda objeto ajuda a ser convertido para DTO
      */
     public AjudaDTO(Ajuda ajuda) {
@@ -25,6 +28,8 @@ public class AjudaDTO {
     }
 
     /**
+     * Método que retorna o id da ajuda.
+     * 
      * @return o id
      */
     public int getId() {
@@ -32,6 +37,8 @@ public class AjudaDTO {
     }
 
     /**
+     * Método que retorna a data atual
+     * 
      * @return a data de criação da ajuda
      */
     public LocalDateTime getData() {
@@ -39,6 +46,7 @@ public class AjudaDTO {
     }
 
     /**
+     * Método que retorna o número do dono da ajuda.
      * 
      * @return o número de telemóvel do dono da ajuda
      */
@@ -46,6 +54,12 @@ public class AjudaDTO {
         return ownerNr;
     }
     
+    
+    /** 
+     * Método que imprime um DTO de Ajuda.
+     * 
+     * @return String   - String que representa o DTO de Ajuda
+     */
     public String toString() {
         return this.getClass().getSimpleName() + "{" + "id=" + id + ", data=" + data.toString() + '}';
     }

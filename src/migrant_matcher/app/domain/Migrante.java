@@ -7,6 +7,9 @@ import migrant_matcher.app.domain.catalogos.CatalogoAjudas;
 
 /**
  * Classe que representa um objeto Migrante.
+ * 
+ * @author Miguel Pato | fc57102
+ * @author Tomás Correia | fc56372
  */
 public class Migrante {
     
@@ -16,6 +19,7 @@ public class Migrante {
 
     /**
      * Construtor de Migrante.
+     * 
      * @param nTelefone número de telemóvel do migrante
      * @param nome nome do migrante
      */
@@ -27,6 +31,7 @@ public class Migrante {
 
     /**
      * Getter do número de telemóvel do migrante
+     * 
      * @return número de telemóvel do migrante
      */
     public String getNTelefone() {
@@ -35,6 +40,7 @@ public class Migrante {
 
     /**
      * Getter do nome do migrante
+     * 
      * @return nome do migrante
      */
     public String getNome() {
@@ -43,6 +49,7 @@ public class Migrante {
 
     /**
      * Adiciona ajudas à lista de ajudas usadas pelo migrante
+     * 
      * @param ajudasSelecionadas ajudas
      */
     public void addAjudasUsadas(List<Ajuda> ajudasSelecionadas) {
@@ -55,17 +62,28 @@ public class Migrante {
 
     /**
      * Getter da lista de ajudas usadas pelo migrante
+     * 
      * @return lista de ajudas usadas pelo migrante
      */
     public List<Ajuda> getAjudasUsadas() {
         return ajudasUsadas;
     }
 
+    
+    /** 
+     * Método que imprime um migrante
+     * 
+     * @return String   string que representa o migrante
+     */
     @Override
     public String toString() {
         return "Migrante [ajudasUsadas=" + ajudasUsadas + ", nTelefone=" + nTelefone + ", nome=" + nome + "]";
     }
 
+    
+    /** 
+     * @return int
+     */
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -76,6 +94,11 @@ public class Migrante {
         return result;
     }
 
+    
+    /** 
+     * @param obj
+     * @return boolean
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj)

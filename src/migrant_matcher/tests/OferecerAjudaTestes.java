@@ -6,15 +6,27 @@ import org.junit.jupiter.api.Test;
 
 import migrant_matcher.app.domain.Regiao;
 import migrant_matcher.app.facade.MigrantMatcher;
+import migrant_matcher.app.facade.controllers.OferecerAjudaHandler;
 import migrant_matcher.app.facade.dto.RegiaoDTO;
-import migrant_matcher.app.facade.handlers.OferecerAjudaHandler;
 import migrant_matcher.app.facade.session.VSession;
 
+/**
+ * A classe {@code OferecerAjudaTestes} serve para testes ao primeiro caso de uso, onde
+ * o utilizador se regista como voluntário e registar algum tipo de ajuda que pretenda oferecer 
+ * 
+ * @author Miguel Pato | fc57102
+ * @author Tomás Correia | fc56372
+ */
 public class OferecerAjudaTestes {
 
     private static MigrantMatcher testes = new MigrantMatcher();
 
     @Test
+    /**
+	* Testa se a sessão é corretamente iniciada
+	* verificando se o voluntario corrente é o
+    * certo
+	*/
     void reconhecerVoluntarioTeste() {    
         testes.wipeCatalogos(); 
         VSession session = testes.reconhecerVoluntario("920000000");
@@ -24,6 +36,10 @@ public class OferecerAjudaTestes {
     }
 
     @Test
+    /**
+	* Testa se um item é corretamente criado
+    * e adicionado ao catalogo de ajudas
+	*/
     void itemCriadoTeste() {
         testes.wipeCatalogos();
         VSession session = testes.reconhecerVoluntario("920000000");
@@ -46,6 +62,10 @@ public class OferecerAjudaTestes {
     }
 
     @Test
+    /**
+	* Testa se um alojamento é corretamente criado
+    * e adicionado ao catalogo de ajudas
+	*/
     void alojamentoCriadoTeste() {
         testes.wipeCatalogos(); 
         VSession session = testes.reconhecerVoluntario("920000000");
@@ -77,6 +97,12 @@ public class OferecerAjudaTestes {
     }
 
     @Test
+    /**
+	* Testa a funcionalidade de autenticação 
+    * verificando se este consegue submeter a sua 
+    * ajuda introduzindo um código de autenticação
+    * errado
+	*/
     void codigosTeste() {
         testes.wipeCatalogos(); 
         VSession session = testes.reconhecerVoluntario("920000000");

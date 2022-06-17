@@ -4,6 +4,9 @@ import migrant_matcher.app.domain.Item;
 
 /**
  * Classe que representa um DTO de Item.
+ * 
+ * @author Miguel Pato | fc57102
+ * @author Tomás Correia | fc56372
  */
 public class ItemDTO extends AjudaDTO {
     
@@ -11,6 +14,7 @@ public class ItemDTO extends AjudaDTO {
 
     /**
      * Construtor de ItemDTO.
+     * 
      * @param item objeto item a ser convertido para DTO
      */
     public ItemDTO(Item item) {
@@ -19,6 +23,8 @@ public class ItemDTO extends AjudaDTO {
     }
 
     /**
+     * Retorna a descrição de um itemDTO.
+     * 
      * @return a descrição do item
      */
     public String getDescricao() {

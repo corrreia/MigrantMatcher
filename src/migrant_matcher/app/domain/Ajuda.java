@@ -4,6 +4,9 @@ import java.time.LocalDateTime;
 
 /**
  * Classe que representa um objeto de Ajuda.
+ * 
+ * @author Miguel Pato | fc57102
+ * @author Tomás Correia | fc56372
  */
 public class Ajuda {
 
@@ -13,6 +16,7 @@ public class Ajuda {
 
     /**
      * Construtor de Ajuda.
+     * 
      * @param ownerNr número de telemóvel do dono da ajuda
      */
     public Ajuda(String ownerNr) {
@@ -22,6 +26,7 @@ public class Ajuda {
 
     /**
      * Setter do id.
+     * 
      * @param id
      */
     public void setId(int id) {
@@ -30,6 +35,7 @@ public class Ajuda {
 
     /**
      * Getter do id.
+     * 
      * @return id
      */
     public int getId() {
@@ -38,7 +44,8 @@ public class Ajuda {
 
     /**
      * Getter do data de criaçao da ajuda
-     * @return
+     * 
+     * @return  data de criaçao da ajuda
      */
     public LocalDateTime getData() {
         return data;
@@ -46,12 +53,18 @@ public class Ajuda {
 
     /**
      * Getter do número de telemóvel do dono da ajuda
+     * 
+     * @return número de telemóvel do dono da ajuda
      */
     public String getOwnerNr() {
         return ownerNr;
     }
 
 
+    
+    /** 
+     * @return int
+     */
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -62,6 +75,11 @@ public class Ajuda {
         return result;
     }
 
+    
+    /** 
+     * @param obj
+     * @return boolean
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj)

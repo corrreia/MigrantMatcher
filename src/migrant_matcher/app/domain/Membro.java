@@ -2,6 +2,9 @@ package migrant_matcher.app.domain;
 
 /** 
  * Classe que representa um objeto de Membro.
+ * 
+ * @author Miguel Pato | fc57102
+ * @author Tomás Correia | fc56372
  */
 public class Membro {
     private String nome;
@@ -22,11 +25,21 @@ public class Membro {
         return nome;
     }
 
+    
+    /** 
+     * Método que imprime um Membro
+     * 
+     * @return String
+     */
     @Override
     public String toString() {
         return "Membro [nome=" + nome + "]";
     }
 
+    
+    /** 
+     * @return int
+     */
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -35,6 +48,11 @@ public class Membro {
         return result;
     }
 
+    
+    /** 
+     * @param obj
+     * @return boolean
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj)

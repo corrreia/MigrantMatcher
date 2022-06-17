@@ -7,6 +7,9 @@ import migrant_matcher.app.domain.Familia;
 
 /**
  * Classe que representa um DTO de Familia.
+ * 
+ * @author Miguel Pato | fc57102
+ * @author Tomás Correia | fc56372
  */
 public class FamDTO extends MigDTO{
     
@@ -14,6 +17,7 @@ public class FamDTO extends MigDTO{
 
     /**
      * Construtor de FamDTO.
+     * 
      * @param nomeChefeCasal nome do chefe de casales da família
      * @param nrTelefoneChefeCasal número de telemóvel do chefe de casal
      * @param membros lista de membros da família
@@ -24,6 +28,7 @@ public class FamDTO extends MigDTO{
     }
 
     /**
+     * Construtor de um DTO de familia
      * 
      * @param fam objeto familia a ser convertido para DTO
      */
@@ -33,6 +38,8 @@ public class FamDTO extends MigDTO{
     }
 
     /**
+     * Método que retorna a lista de membros da familia
+     * 
      * @return a lista de membros da família
      */
     public List<MembroDTO> getMembros() {
@@ -40,13 +47,20 @@ public class FamDTO extends MigDTO{
     }
 
     /**
-     * @return o tamanho da família
+     * Método que retorna o tamanho da familia
      * 
+     * @return o tamanho da família
      */
     public int getFamiliaSize() { 
         return this.membros.size() + 1; 
     }
 
+    
+    /** 
+     * Método que imprime um DTO de Familia.
+     * 
+     * @return String
+     */
     @Override
     public String toString() {
         return "FamDTO [membros=" + membros + "]";

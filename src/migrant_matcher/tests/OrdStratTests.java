@@ -14,6 +14,13 @@ import org.junit.jupiter.api.Test;
 import migrant_matcher.app.domain.Ajuda;
 import migrant_matcher.app.domain.Alojamento;
 
+/**
+ * A classe {@code OrdStratTests} serve para testar as Strategies
+ * de ordenação de ajudas.
+ * 
+ * @author Miguel Pato | fc57102
+ * @author Tomás Correia | fc56372
+ */
 public class OrdStratTests {
 
     Item banana = new Item("920000000", "banana");
@@ -35,7 +42,10 @@ public class OrdStratTests {
     OrdAjFactory ordAjFactory = OrdAjFactory.getInstance();
     CatalogoAjudas catalogoAjudas = CatalogoAjudas.getInstance();
 
-
+    /**
+     * Função privada que preenche o catalogo 
+     * de ajudas
+     */
     private void fillList() {
         catalogoAjudas.wipeCatalogo();
 
@@ -57,6 +67,9 @@ public class OrdStratTests {
     }
 
     @Test
+    /**
+     * Testa a ordenação por ID
+     */
     void testOrdByID() {
         fillList();
 
@@ -81,6 +94,9 @@ public class OrdStratTests {
     }
 
     @Test
+    /**
+     * Testa a ordenação por alojamentos primeiro
+     */
     void testOrdFstAloj() {
         fillList();
 
@@ -94,6 +110,9 @@ public class OrdStratTests {
     }
 
     @Test
+    /**
+     * Testa a ordenação por Items primeiro
+     */
     void testOrdFstItem() {
         fillList();
 

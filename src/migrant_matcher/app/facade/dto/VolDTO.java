@@ -4,7 +4,9 @@ import migrant_matcher.app.domain.Voluntario;
 
 /**
  * Classe que representa um DTO de Voluntario.
- *
+ * 
+ * @author Miguel Pato | fc57102
+ * @author Tomás Correia | fc56372
  */
 public class VolDTO {
 
@@ -12,6 +14,7 @@ public class VolDTO {
 
     /**
      * Construtor de VolDTO.
+     * 
      * @param voluntario objeto voluntario a ser convertido para DTO
      */
     public VolDTO(Voluntario voluntario) {
@@ -19,6 +22,8 @@ public class VolDTO {
     }
 
     /**
+     * Construtor de um DTO de Voluntario
+     * 
      * @param numeroTelefone string numeroTelefone a ser convertido para DTO
      */
     public VolDTO (String nrTelefone) {
@@ -26,12 +31,20 @@ public class VolDTO {
     }
 
     /**
+     * Método que retorna o nrTelefone de um DTO de Voluntario
+     * 
      * @return o número de telefone do voluntario
      */
     public String getNrTelefone() {
         return nrTelefone;
     }
 
+    
+    /** 
+     * Método que imprime um VolDTO
+     * 
+     * @return String   o que é impresso
+     */
     public String toString() {
         return "VolDTO{" +
                 "nrTelefone='" + nrTelefone + '\'' +

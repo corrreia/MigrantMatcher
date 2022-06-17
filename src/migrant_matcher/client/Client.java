@@ -6,7 +6,20 @@ import migrant_matcher.app.domain.Regiao;
 import migrant_matcher.app.domain.factory.OrdAjFactory;
 import migrant_matcher.app.facade.MigrantMatcher;
 
+/**
+ * A classe {@code Client} serve como main na interação com
+ * o utilizador, partindo de ponto de começo para os dois casos 
+ * de uso.
+ * 
+ * @author Miguel Pato | fc57102
+ * @author Tomás Correia | fc56372
+ */
 public class Client {
+    
+    /** 
+     * Função main que inicia o programa.
+     * @param args Argumentos da linha de comando.
+     */
     public static void main(String[] args) {
         MigrantMatcher app = new MigrantMatcher();
         Scanner scanner = new Scanner(System.in);
@@ -32,7 +45,7 @@ public class Client {
         app.catalogoRegiao.adicionarRegiao(new Regiao("Viana Do Castelo"));
 
         
-
+        // Ajudas para testar os casos de uso (Descomentar se necessário)
         // app.catalogoAjudas.adicionarAjuda(new Alojamento("936655666", 543, Norte));
         // app.catalogoAjudas.adicionarAjuda(new Item("966645654", "pao"));
         // app.catalogoAjudas.adicionarAjuda(new Item("966645654", "ovo"));
@@ -43,7 +56,7 @@ public class Client {
         // app.catalogoAjudas.adicionarAjuda(new Item("966645654", "laranja"));
 
 
-        //=====================================
+        //=================================================================================
 
         System.out.println( OrdAjFactory.getInstance().getOrdAjStrat("migrant_matcher.app.strategies.ord.OrdAjById").getClass().getName() );
 

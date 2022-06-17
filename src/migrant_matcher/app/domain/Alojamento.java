@@ -3,6 +3,8 @@ package migrant_matcher.app.domain;
 /**
  * Classe que representa um objeto de Alojamento.
  *
+ * @author Miguel Pato | fc57102
+ * @author Tomás Correia | fc56372
  */
 public class Alojamento extends Ajuda{
     
@@ -11,6 +13,7 @@ public class Alojamento extends Ajuda{
 
     /**
      * Construtor de Alojamento.
+     * 
      * @param ownerNr número de telemóvel do dono da ajuda
      * @param nPessoas número de pessoas que o alojamento oferece
      * @param regiao região do alojamento
@@ -23,6 +26,7 @@ public class Alojamento extends Ajuda{
 
     /**
      * Constructor de Alojamento.
+     * 
      * @param ownerNr número de telemóvel do dono da ajuda
      * @param nPessoas número de pessoas que o alojamento oferece
      */
@@ -33,6 +37,7 @@ public class Alojamento extends Ajuda{
 
     /**
      * Getter do número de pessoas que o alojamento oferece
+     * 
      * @return número de pessoas
      */
     public int getnPessoas() {
@@ -41,7 +46,8 @@ public class Alojamento extends Ajuda{
 
     /**
      * Getter da região do alojamento
-     * @param nPessoas
+     * 
+     * @param nPessoas  número de pessoas que o alojamento oferece
      */
     public void setnPessoas(int nPessoas) {
         this.nPessoas = nPessoas;
@@ -49,7 +55,8 @@ public class Alojamento extends Ajuda{
 
     /**
      * Getter da região do alojamento
-     * @return região
+     * 
+     * @return região   região do alojamento
      */
     public Regiao getRegiao() {
         return regiao;
@@ -57,18 +64,29 @@ public class Alojamento extends Ajuda{
 
     /**
      * Setter da região do alojamento
+     * 
      * @param regiao região
      */
     public void setRegiao(Regiao regiao) {
         this.regiao = regiao;
     }
 
+    
+    /** 
+     * Método que imprime um alojamento
+     * 
+     * @return String
+     */
     @Override
     public String toString() {
         return "Alojamento [nPessoas=" + nPessoas + ", regiao=" + regiao + ", contactoProprietario=" + super.getOwnerNr() + ", data=" + 
         super.getData() + ", id=" + super.getId() + "]";
     }
 
+    
+    /** 
+     * @return int
+     */
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -78,6 +96,11 @@ public class Alojamento extends Ajuda{
         return result;
     }
 
+    
+    /** 
+     * @param obj
+     * @return boolean
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
